@@ -1,0 +1,20 @@
+@import '../vars';
+
+.sub-sorting {
+	background: rgba(0, 0, 0, 0.15);
+	margin-bottom: 20px;
+	padding: 5px 20px;
+	width: 100%;
+
+	a {
+		display: inline-block;
+		font-weight: bold;
+		margin-left: 10px;
+
+		&.active {
+			color: $color-white;
+			text-decoration: none;
+		}
+	}
+
+}

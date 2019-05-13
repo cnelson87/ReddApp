@@ -1,0 +1,42 @@
+{
+  "name": "ReddApp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cross-fetch": "^3.0.2",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-app-polyfill": "^1.0.1",
+    "react-dom": "^16.8.6",
+    "react-markdown": "^4.0.8",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Safari >= 11",
+    "IE >= 11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cnelson87/ReddApp"
+  },
+  "author": "Chris Nelson <cnelson87@gmail.com>"
+}

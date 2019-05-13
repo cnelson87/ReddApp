@@ -1,0 +1,46 @@
+@import '../vars';
+
+.post-detail {
+	background: rgba($color-white, 0.15);
+	margin-bottom: 10px;
+	padding: 5px 0;
+
+	.post-detail--header,
+	.post-detail--footer,
+	.post-detail--media,
+	.post-detail--main {
+		padding: 5px 20px;
+	}
+
+	.post-item--header {
+		font-size: 0.875em; //14px
+	}
+
+	.post-detail--media {
+
+		> img,
+		> video {
+			display: block;
+			margin: 0 auto;
+			max-height: 720px;
+		}
+	}
+
+	.post-detail--main {
+		display: flex;
+	}
+
+	.post-detail--content {
+		width: calc(100% - 160px);
+	}
+
+	.post-detail--thumbnail {
+		margin-left: 20px;
+		width: 140px;
+
+		> img {
+			display: block;
+			width: 100%;
+		}
+	}
+}

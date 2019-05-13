@@ -1,0 +1,104 @@
+@import './vars';
+
+*, *::before, *::after {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: $color-gray;
+	color: $color-white;
+	font-family: $font-main;
+	font-size: 1.0rem; //16px
+	line-height: 1.5; //24px
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: $color-blue;
+
+	&:hover, &:focus {
+		color: $color-light-blue;
+	}
+}
+
+p, dl, ol, ul, table {
+	margin: 0.5em 0 1.0em;
+}
+
+ol, ul {
+	padding-left: 2.0em;
+}
+
+li {
+	margin: 0.5em 0;
+}
+
+th, td {
+	padding: 2px 5px;
+}
+
+h1 {
+	font-size: 2.0rem; //32px
+	line-height: 1.25; //40px
+}
+
+h2 {
+	font-size: 1.5rem; //24px
+	line-height: 1.25; //30px
+	margin-bottom: 0.5em; //12px
+}
+
+h3 {
+	font-size: 1.25rem; //20px
+	line-height: 1.2; //24px
+	margin-bottom: 0.4em; //8px
+}
+
+img, video {
+	max-width: 100%;
+	width: auto;
+}
+
+label {
+	color: $color-black;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+input, select, textarea, button {
+	background: $color-white;
+	border: 1px solid $color-black;
+	border-radius: 0;
+	box-shadow: none;
+	color: $color-black;
+	display: inline-block;
+	font-size: 16px;
+	height: 32px;
+	line-height: 1.2;
+	padding: 5px 10px;
+}
+
+textarea {
+	height: auto;
+}
+
+button {
+	color: $color-blue;
+	cursor: pointer;
+
+	&:hover, &:focus {
+		color: $color-light-blue;
+	}
+}
+
+.btn-lrg {
+	font-size: 20px;
+	height: 42px;
+	line-height: 1.2;
+	padding: 8px 20px;
+}

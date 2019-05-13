@@ -1,0 +1,17 @@
+@import '../vars';
+
+.loading {
+	align-items: center;
+	background: rgba($color-black, 0.15);
+	display: flex;
+	justify-content: center;
+	margin: $lg-spacing 0;
+	padding: $lg-spacing 20px;
+
+	.loading--message {
+		color: $color-white;
+		font-size: 1.5rem; //24px
+		line-height: 1.25; //30px
+		margin: 0;
+	}
+}

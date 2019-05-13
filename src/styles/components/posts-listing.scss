@@ -1,0 +1,56 @@
+@import '../vars';
+
+.posts-listing {
+	margin-bottom: 10px;
+}
+
+.post-item {
+	background: rgba($color-white, 0.15);
+	margin-bottom: 10px;
+	padding: $xs-spacing 0;
+	position: relative;
+
+	.post-item--header,
+	.post-item--footer,
+	.post-item--media,
+	.post-item--main {
+		padding: $xs-spacing 20px;
+	}
+
+	.post-item--header {
+		font-size: 0.875em; //14px
+	}
+
+	.post-item--media {
+
+		> img,
+		> video {
+			display: block;
+			margin: 0 auto;
+			max-height: 480px;
+		}
+	}
+
+	.post-item--main {
+		display: flex;
+	}
+
+	.post-item--content {
+		width: calc(100% - 160px);
+	}
+
+	.post-item--thumbnail {
+		margin-left: 20px;
+		width: 140px;
+
+		> img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.post-item--body {
+		max-height: 200px;
+		overflow: hidden;
+	}
+}
