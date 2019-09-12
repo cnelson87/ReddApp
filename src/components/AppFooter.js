@@ -7,7 +7,7 @@ function AppFooter() {
 			<div className="app-footer--container">
 				<div className="app-footer--column">
 					<p>
-						ReddApp by chris.nelson@wearepop.com
+						ReddApp by cnelson87@gmail.com
 					</p>
 				</div>
 				<div className="app-footer--column">

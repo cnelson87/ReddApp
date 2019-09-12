@@ -6,7 +6,7 @@
 	display: flex;
 	justify-content: center;
 	margin: $lg-spacing 0;
-	padding: $lg-spacing 20px;
+	padding: $sm-spacing $lg-spacing;
 
 	.loading--message {
 		color: $color-white;

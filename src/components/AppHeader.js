@@ -4,6 +4,7 @@ import redditAlien from '../images/redditAlien.svg';
 import redditLogo from '../images/redditLogo.svg';
 
 function AppHeader() {
+
 	return (
 		<header className="app-header">
 			<div className="app-header--container">

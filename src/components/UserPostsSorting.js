@@ -7,6 +7,7 @@ const { userPostsSorting } = Constants;
 
 function UserPostsSorting(props) {
 	const { user } = props;
+
 	return (
 		<div className="sub-sorting">
 			sort:

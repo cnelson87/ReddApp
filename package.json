@@ -17,6 +17,9 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/generator": "^7.6.0",
+    "@babel/runtime": "^7.6.0",
     "node-sass": "^4.12.0"
   },
   "scripts": {

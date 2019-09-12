@@ -4,6 +4,7 @@ import PostItem from '../components/PostItem';
 
 function PostsListing(props) {
 	const { data } = props;
+
 	return (
 		<div className="posts-listing">
 			{data.map((item) => (

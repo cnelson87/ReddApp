@@ -16,6 +16,7 @@ function PostItem(props) {
 		src: media.reddit_video.fallback_url
 	};
 	// console.log(props.data);
+
 	return (
 		<article className="post-item" data-id={id}>
 			<header className="post-item--header">

@@ -17,6 +17,7 @@ function PostDetail(props) {
 		src: media.reddit_video.fallback_url
 	};
 	// console.log(comments);
+
 	return (
 		<article className="post-detail" data-id={id}>
 			<header className="post-detail--header">

@@ -23,7 +23,7 @@ const Constants = {
 	// reddit settings
 	apiBaseUrl: 'https://www.reddit.com',
 	postsLimit: 50,
-	defaultSubreddit: 'all',
+	defaultSubreddit: 'popular', // 'all', 'popular'
 	defaultSubredditPostsSort: 'hot',
 	defaultUserPostsSort: 'new',
 	subredditPostsSorting: ['hot', 'new', 'controversial', 'top', 'rising'],

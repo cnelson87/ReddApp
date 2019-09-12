@@ -97,8 +97,8 @@ button {
 }
 
 .btn-lrg {
-	font-size: 20px;
-	height: 42px;
-	line-height: 1.2;
-	padding: 8px 20px;
+	font-size: 1.5rem; //24px
+	height: 46px;
+	line-height: 1.25; //30px
+	padding: $sm-spacing $lg-spacing;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Constants from '../config/Constants';
 import LoadError from '../components/LoadError';
 import Loading from '../components/Loading';
@@ -73,11 +72,11 @@ class SubredditPostsListingContainer extends React.Component {
 		}
 
 		return (
-			<div>
+			<>
 				<PostsListing data={data} />
 				{loading ? <Loading /> : null}
-				{next ? <LoadMoreCTA onClick={this.onLoadMoreClick} /> : null}
-			</div>
+				{!loading && next ? <LoadMoreCTA onClick={this.onLoadMoreClick} /> : null}
+			</>
 		);
 	}
 }

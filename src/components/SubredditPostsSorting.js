@@ -7,6 +7,7 @@ const { subredditPostsSorting } = Constants;
 
 function SubredditPostsSorting(props) {
 	const { subreddit } = props;
+
 	return (
 		<div className="sub-sorting">
 			sort:

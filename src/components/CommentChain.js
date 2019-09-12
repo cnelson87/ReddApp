@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 function processReplies(replies) {
+
 	return (
 		replies.data.children.map((item) => {
 			if (item.kind === 'more') {
