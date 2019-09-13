@@ -6,7 +6,6 @@ import AppFooter from './components/AppFooter';
 import UserView from './views/UserView';
 import PostDetailView from './views/PostDetailView';
 import SubredditView from './views/SubredditView';
-import './styles/app.scss';
 
 const { defaultSubreddit } = Constants;
 const redirectTo = `/r/${defaultSubreddit}`;

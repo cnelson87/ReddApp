@@ -1,0 +1,199 @@
+//
+// Form Elements
+// -----------------------------------------------------
+
+
+fieldset {
+	margin-bottom: 1.5em;
+	position: relative;
+}
+
+legend {
+	display: none;
+}
+
+label, .label {
+	display: inline-block;
+	font-size: 1.0rem; //16px
+	font-weight: normal;
+	line-height: 1.5; //24px
+}
+
+input, select, textarea, button, .btn {
+	background: $color-white;
+	border: 1px solid $color-black;
+	border-radius: 0;
+	box-shadow: none;
+	color: $color-black;
+	display: inline-block;
+	font-family: $font-main;
+	font-size: 1.0rem;
+	height: 32px; //line-height + padding + border
+	line-height: 1.25; //20px
+	margin: 0;
+	outline: 0;
+	padding: 5px 10px;
+	width: 100%;
+}
+
+// Remove dotted line from input on Firefox
+input::-moz-focus-inner {
+	border: 0;
+}
+
+input:invalid, select:invalid, textarea:invalid {
+	box-shadow: none;
+	outline: 0;
+}
+
+::-webkit-input-placeholder {
+	color: $color-gray-light;
+	opacity: 1;
+}
+::-moz-placeholder {
+	color: $color-gray-light;
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: $color-gray-light;
+	opacity: 1;
+}
+::placeholder {
+	color: $color-gray-light;
+	opacity: 1;
+}
+:focus::-webkit-input-placeholder {
+	color: transparent;
+	opacity: 0;
+}
+:focus::-moz-placeholder {
+	color: transparent;
+	opacity: 0;
+}
+:focus:-ms-input-placeholder {
+	color: transparent;
+	opacity: 0;
+}
+:focus::placeholder {
+	color: transparent;
+	opacity: 0;
+}
+
+//
+// Start text inputs, selects, textareas
+
+select {
+	padding-right: 24px;
+}
+
+textarea {
+	height: auto;
+	resize: none;
+}
+
+input[disabled], select[disabled], textarea[disabled], button[disabled] {
+	border-color: $color-gray-light;
+	color: $color-gray-light;
+}
+
+input.invalid, select.invalid, textarea.invalid {
+	border-color: $color-red;
+}
+
+//
+// End text inputs, selects, textareas
+
+// Start checkbox & radio inputs
+//
+
+input[type='checkbox'],
+input[type='radio'] {
+	// setting exact size removes IE padding, makes uniform cross-browser
+	border: 0;
+	cursor: pointer;
+	height: 20px;
+	padding: 0;
+	width: 20px;
+
+	&[disabled] {
+		cursor: default;
+	}
+}
+
+//
+// End checkbox & radio inputs
+
+// Start range input
+//
+
+input[type='range'] {
+	border: 0;
+	cursor: pointer;
+	height: auto;
+	padding: 0;
+
+	&[disabled] {
+		cursor: default;
+	}
+}
+
+//
+// End range input
+
+// Start buttons
+//
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button,
+.btn {
+	appearance: none;
+	color: $color-blue;
+	cursor: pointer;
+	width: auto;
+
+	&:hover, &:focus {
+		color: $color-blue-light;
+	}
+
+	&.btn-lrg {
+		font-size: 1.5rem; //24px
+		height: 48px; //line-height + padding + border
+		line-height: 1.25; //30px
+		padding: 8px 32px;
+	}
+}
+
+//
+// End buttons
+
+// Start misc
+//
+
+// wrapper for form buttons
+.form-btns {
+	clear: both;
+	border-top: 2px solid $color-gray-light;
+	margin-bottom: 1.0em;
+	padding-top: 1.0em;
+}
+
+// message below an input field
+.help-block {
+	color: $color-gray-med;
+	display: block;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+// error message
+.field-validation-error {
+	color: $color-red;
+	display: block;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+//
+// End misc

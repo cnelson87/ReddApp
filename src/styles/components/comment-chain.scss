@@ -1,7 +1,7 @@
-@import '../vars';
+@import '../config/variables';
 
 .comment-chain {
-	background: rgba($color-black, 0.15);
+	background: rgba($color-black, 0.1);
 	margin-bottom: $sm-spacing;
 	padding: $sm-spacing 0;
 
@@ -24,10 +24,14 @@
 		font-size: 0.875em;
 	}
 
+	// .comment-chain--footer > .comment-chain--reply {
+	// 	color: $color-black;
+	// }
+
 	.comment-chain--reply {
-		background: rgba($color-black, 0.15);
-		// border: 1px solid rgba($color-white, 0.25);
-		border: 1px solid $color-black;
+		// background: rgba($color-black, 0.1);
+		border: 1px solid $color-gray-med;
+		// color: $color-white;
 		margin: $sm-spacing 0;
 		overflow-wrap: break-word;
 	}

@@ -1,0 +1,102 @@
+//
+// Base Typography
+// -----------------------------------------------------
+
+
+body {
+	background: $color-near-white;
+	color: $color-near-black;
+	font-family: $font-main;
+	font-size: 100%; //16px
+	line-height: 1.5; //24px
+}
+
+a {
+	@include action-transition();
+	color: $color-blue;
+	text-decoration: none;
+}
+a:active, a:focus, a:hover {
+	color: $color-blue-light;
+	text-decoration: underline;
+}
+
+p, ul, ol, dl, table, address {
+	margin: 0.5em 0 1.0em;
+}
+
+ol, ul {
+	padding-left: 2.0em;
+}
+
+li, dt, dd {
+	margin: 0.5em 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+th, td {
+	padding: 2px 5px;
+}
+
+th {
+	font-weight: bold;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+td {
+	vertical-align: top;
+}
+
+nav ul, nav ol, nav li {
+	list-style: none;
+	margin: 0;
+}
+
+h1, .h1 {
+	font-size: 2.0rem; //32px
+	font-weight: normal;
+	line-height: 1.25; //40px
+}
+
+h2, .h2 {
+	font-size: 1.5rem; //24px
+	font-weight: bold;
+	line-height: 1.25; //30px
+	margin-bottom: 0.5em; //12px
+}
+
+h3, .h3 {
+	font-size: 1.25rem; //20px
+	font-weight: bold;
+	line-height: 1.2; //24px
+	margin-bottom: 0.4em; //8px
+}
+
+h4, .h4 {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.0;
+	margin-bottom: 8px;
+}
+h5, .h5 {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.0;
+	margin-bottom: 4px;
+}
+h6, .h6 {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1.0;
+	margin-bottom: 4px;
+}
+
+
+hr {
+	border-top: 2px solid $color-gray-light;
+	margin: 1.5em 0;
+}

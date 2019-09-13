@@ -1,10 +1,20 @@
-@import './vars';
+//
+// Base Layout
+// -----------------------------------------------------
+
+
+html, body {
+	max-width: 100%;
+	min-width: $min-width;
+	overflow-x: hidden;
+	width: 100%;
+}
 
 .app {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	padding-top: $app-header-height + 4;
+	padding-top: $header-height + 4;
 }
 
 .app-header,
@@ -34,9 +44,9 @@
 .app-footer--container {
 	align-items: center;
 	display: flex;
-	height: $app-header-height;
+	height: $header-height;
 	margin: 0 auto;
-	max-width: $site-max-width;
+	max-width: $max-width;
 	padding: $md-spacing 0;
 }
 
@@ -69,12 +79,12 @@
 	text-decoration: none;
 
 	&.active {
-		color: $color-gray;
+		color: $color-gray-med;
 	}
 }
 
 .app-main {
-	min-height: calc(100vh - #{$app-header-height + $app-header-height});
+	min-height: calc(100vh - #{$header-height + $header-height});
 	padding: $md-spacing;
 
 	@media (min-width: $breakpoint-desktop-min) {
@@ -84,7 +94,7 @@
 
 .app-main--container {
 	margin: 0 auto;
-	max-width: $site-max-width;
+	max-width: $max-width;
 }
 
 .app-logo {

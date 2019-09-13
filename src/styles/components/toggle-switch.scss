@@ -1,4 +1,4 @@
-@import '../vars';
+@import '../config/variables';
 
 .toggle-switch {
 	align-items: center;
@@ -18,14 +18,14 @@
 	}
 
 	.toggle-switch--slider {
-		background: $color-light-gray;
+		background: $color-gray-light;
 		border-radius: 12px;
 		display: flex;
 		height: 24px;
 		justify-content: center;
 		padding: 2px;
 		width: 48px;
-		transition: background 200ms;
+		transition: background $transition-speed;
 
 		.toggle-switch--button {
 			background: $color-near-white;
@@ -33,7 +33,7 @@
 			height: 20px;
 			width: 20px;
 			transform: translateX(-12px);
-			transition: background 200ms, transform 200ms;
+			transition: background $transition-speed, transform $transition-speed;
 		}
 	}
 

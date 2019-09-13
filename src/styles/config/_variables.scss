@@ -1,0 +1,82 @@
+//
+// Config Vars
+// -----------------------------------------------------
+
+
+// Color Definitions
+$color-black: #000;
+$color-white: #fff;
+$color-near-black: #1a1a1a;
+$color-near-white: #efefef;
+$color-gray-dark: #333;
+$color-gray-med: #999;
+$color-gray-light: #ccc;
+$color-gray-xlight: #dedede;
+$color-red: #900;
+$color-red-bright: #c00;
+$color-blue: #07d;
+$color-blue-dark: #036;
+$color-blue-light: #7be;
+$transparent: rgba(0,0,0,0); //iOS friendly transparent
+
+// Fonts
+$font-main: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+// $font-alt: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+// $font-serif: 'Arvo', Georgia, Times, serif;
+
+
+// Animation
+$slow-anim-speed: 800ms;
+$animation-speed: 400ms;
+$transition-speed: 200ms;
+
+
+// Media Queries
+$breakpoint-mobile-wide: 540px;
+$breakpoint-mobile-max:  767px;
+$breakpoint-tablet-min:  768px;
+$breakpoint-tablet-wide: 920px;
+$breakpoint-tablet-max:  1079px;
+$breakpoint-desktop-min: 1080px;
+$breakpoint-desktop-wide: 1360px;
+$breakpoint-desktop-xwide: 1920px;
+
+
+// Container Sizes
+$min-width: 360px;
+$max-width: 1200px;
+$mobile-max-width: 640px;
+$header-height: 80px;
+$footer-height: 80px;
+
+
+// Spacing
+$base-spacing: 16px;
+$xs-spacing: $base-spacing / 4;
+$sm-spacing: $base-spacing / 2;
+$md-spacing: $base-spacing;
+$lg-spacing: $base-spacing * 2;
+$xl-spacing: $base-spacing * 4;
+
+
+// Grid System
+$gutter-base: $base-spacing;
+$gutter-half: $gutter-base / 2;
+$gutter-width-mobile: $gutter-base;
+$gutter-width-tablet: $gutter-base * 1.5;
+$gutter-width-desktop: $gutter-base * 2;
+$gutter-half-width-mobile: $gutter-width-mobile / 2;
+$gutter-half-width-tablet: $gutter-width-tablet / 2;
+$gutter-half-width-desktop: $gutter-width-desktop / 2;
+$gutter-double-width-mobile: $gutter-width-mobile * 2;
+$gutter-double-width-tablet: $gutter-width-tablet * 2;
+$gutter-double-width-desktop: $gutter-width-desktop * 2;
+$vertical-pad-mobile: 20px;
+$vertical-pad-tablet: 40px;
+$vertical-pad-desktop: 60px;
+$vertical-half-pad-mobile: $vertical-pad-mobile / 2;
+$vertical-half-pad-tablet: $vertical-pad-tablet / 2;
+$vertical-half-pad-desktop: $vertical-pad-desktop / 2;
+$vertical-double-pad-mobile: $vertical-pad-mobile * 2;
+$vertical-double-pad-tablet: $vertical-pad-tablet * 2;
+$vertical-double-pad-desktop: $vertical-pad-desktop * 2;

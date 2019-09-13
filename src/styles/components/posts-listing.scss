@@ -1,11 +1,12 @@
-@import '../vars';
+@import '../config/variables';
 
 .posts-listing {
 	margin-bottom: 10px;
 }
 
 .post-item {
-	background: rgba($color-white, 0.15);
+	background: $color-white;
+	border-radius: 4px;
 	margin-bottom: 10px;
 	padding: $xs-spacing 0;
 	position: relative;
