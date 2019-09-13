@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import ToggleSwitch from '../components/ToggleSwitch';
+import ToggleNSFW from '../containers/ToggleNSFW';
+import ToggleTheme from '../containers/ToggleTheme';
 import redditAlien from '../images/redditAlien.svg';
 import redditLogo from '../images/redditLogo.svg';
 
@@ -21,10 +22,10 @@ function AppHeader() {
 					<NavLink className="main-nav-link" activeClassName="active" to="/r/all">All</NavLink>
 				</div>
 				<div className="app-header--column toggle-column">
-					<ToggleSwitch label={"Show NSFW"} />
+					<ToggleNSFW />
 				</div>
 				<div className="app-header--column toggle-column">
-					<ToggleSwitch label={"Dark Theme"} />
+					<ToggleTheme />
 				</div>
 				<div className="app-header--column title-column">
 					<h1>Welcome to ReddApp</h1>
