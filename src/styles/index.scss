@@ -83,6 +83,19 @@ input, select, textarea, button {
 	padding: 5px 10px;
 }
 
+input[type='checkbox'],
+input[type='radio'] {
+	// setting exact size removes IE padding, makes uniform cross-browser
+	cursor: pointer;
+	height: 20px;
+	padding: 0;
+	width: 20px;
+
+	&[disabled] {
+		cursor: default;
+	}
+}
+
 textarea {
 	height: auto;
 }

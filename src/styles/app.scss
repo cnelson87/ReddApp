@@ -11,8 +11,12 @@
 .app-footer {
 	background: $color-near-white;
 	color: $color-near-black;
-	padding: 0 $xl-spacing;
+	padding: 0 $md-spacing;
 	width: 100%;
+
+	@media (min-width: $breakpoint-desktop-min) {
+		padding: 0 $xl-spacing;
+	}
 }
 
 .app-header {
@@ -38,36 +42,44 @@
 
 .app-header--column,
 .app-footer--column {
-	margin-left: $lg-spacing;
+	margin-right: $lg-spacing;
 
-	&:first-child {
+	&.title-column {
+		flex-grow: 1;
 		margin: 0;
+		text-align: right;
+
+		@media (max-width: $breakpoint-tablet-max) {
+			display: none;
+		}
 	}
-}
 
-.app-header--last-column {
-	flex-grow: 1;
-	text-align: right;
+	&.toggle-column {
 
-	@media (max-width: $breakpoint-mobile-max) {
-		display: none;
+		@media (max-width: $breakpoint-mobile-max) {
+			display: none;
+		}
 	}
 }
 
 .main-nav-link {
+	display: inline-block;
+	font-weight: bold;
+	padding: 4px 8px;
+	text-decoration: none;
 
 	&.active {
-		text-decoration: none;
-
-		&:hover, &:focus {
-			color: $color-blue;
-		}
+		color: $color-gray;
 	}
 }
 
 .app-main {
 	min-height: calc(100vh - #{$app-header-height + $app-header-height});
-	padding: $lg-spacing $xl-spacing;
+	padding: $md-spacing;
+
+	@media (min-width: $breakpoint-desktop-min) {
+		padding: $lg-spacing $xl-spacing;
+	}
 }
 
 .app-main--container {

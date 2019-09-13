@@ -13,7 +13,11 @@
 	.comment-chain--footer,
 	.comment-chain--body,
 	.comment-chain--reply {
-		padding: $xs-spacing #{$base-spacing * 1.5};
+		padding: $xs-spacing $sm-spacing;
+
+		@media (min-width: $breakpoint-desktop-min) {
+			padding: $xs-spacing #{$base-spacing * 1.5};
+		}
 	}
 
 	.comment-chain--header {

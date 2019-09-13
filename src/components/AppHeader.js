@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import ToggleSwitch from '../components/ToggleSwitch';
 import redditAlien from '../images/redditAlien.svg';
 import redditLogo from '../images/redditLogo.svg';
 
@@ -15,11 +16,17 @@ function AppHeader() {
 					</Link>
 				</div>
 				<div className="app-header--column">
-					<NavLink className="main-nav-link" activeClassName="active" to="/r/all">All</NavLink>
-					&nbsp;&nbsp;&nbsp;
 					<NavLink className="main-nav-link" activeClassName="active" to="/r/popular">Popular</NavLink>
+					&nbsp;
+					<NavLink className="main-nav-link" activeClassName="active" to="/r/all">All</NavLink>
 				</div>
-				<div className="app-header--column app-header--last-column">
+				<div className="app-header--column toggle-column">
+					<ToggleSwitch label={"Show NSFW"} />
+				</div>
+				<div className="app-header--column toggle-column">
+					<ToggleSwitch label={"Dark Theme"} />
+				</div>
+				<div className="app-header--column title-column">
 					<h1>Welcome to ReddApp</h1>
 				</div>
 			</div>
