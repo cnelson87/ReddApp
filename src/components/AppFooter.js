@@ -1,4 +1,7 @@
 import React from 'react';
+import Constants from '../config/Constants';
+
+const { strings } = Constants;
 
 function AppFooter() {
 
@@ -7,7 +10,7 @@ function AppFooter() {
 			<div className="app-footer--container">
 				<div className="app-footer--column">
 					<p>
-						ReddApp by cnelson87@gmail.com
+						ReddApp by {strings.myEmail}
 					</p>
 				</div>
 				<div className="app-footer--column">

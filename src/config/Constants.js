@@ -29,6 +29,11 @@ const Constants = {
 	subredditPostsSorting: ['hot', 'new', 'controversial', 'top', 'rising'],
 	userPostsSorting: ['new', 'hot', 'top'],
 
+	strings: {
+		title: 'Welcome to ReddApp',
+		myEmail: 'cnelson87@gmail.com',
+	},
+
 };
 
 export default Constants;

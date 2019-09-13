@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Constants from '../config/Constants';
 import ToggleNSFW from '../containers/ToggleNSFW';
 import ToggleTheme from '../containers/ToggleTheme';
 import redditAlien from '../images/redditAlien.svg';
 import redditLogo from '../images/redditLogo.svg';
+
+const { strings } = Constants;
 
 function AppHeader() {
 
@@ -28,7 +31,7 @@ function AppHeader() {
 					<ToggleTheme />
 				</div>
 				<div className="app-header--column title-column">
-					<h1>Welcome to ReddApp</h1>
+					<h1>{strings.title}</h1>
 				</div>
 			</div>
 		</header>
