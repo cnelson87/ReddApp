@@ -53,3 +53,9 @@
 		width: 88px;
 	}
 }
+
+body.dark-theme {
+	.sidebar {
+		background: $color-gray-dark;
+	}
+}

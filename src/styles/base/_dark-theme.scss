@@ -1,0 +1,29 @@
+//
+// Dark Theme
+// -----------------------------------------------------
+
+
+body.dark-theme {
+	background: $color-near-black;
+	color: $color-near-white;
+
+	a {
+		color: $color-white;
+	}
+	a:active, a:focus, a:hover {
+		color: $color-near-white;
+	}
+
+	.app-header,
+	.app-footer {
+		background: $color-gray-med;
+		border-color: $color-gray-light;
+	}
+
+	.main-nav-link {
+		&.active {
+			color: $color-near-white;
+		}
+	}
+
+}

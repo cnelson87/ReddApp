@@ -1,8 +1,8 @@
 import React from 'react';
 import Constants from '../config/Constants';
+import PostsListingContainer from '../containers/PostsListingContainer';
 import LoadError from '../components/LoadError';
 import Loading from '../components/Loading';
-import PostsListing from '../components/PostsListing';
 import LoadMoreCTA from '../components/LoadMoreCTA';
 
 const { apiBaseUrl, postsLimit } = Constants;
@@ -73,7 +73,7 @@ class UserPostsListingContainer extends React.Component {
 
 		return (
 			<>
-				<PostsListing data={data} />
+				<PostsListingContainer data={data} />
 				{loading ? <Loading /> : null}
 				{!loading && next ? <LoadMoreCTA onClick={this.onLoadMoreClick} /> : null}
 			</>

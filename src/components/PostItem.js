@@ -7,6 +7,7 @@ import OverlayBlock from '../components/OverlayBlock';
 
 function PostItem(props) {
 	const { id, author, created, is_video, over_18, permalink, media, selftext, subreddit, thumbnail, title, url } = props.data;
+	const { nsfwEnabled } = props;
 	const mediaImage = !is_video && url && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
 	const thumbnailImage = !is_video && !mediaImage && thumbnail && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
 	const createdTimeAgo = moment(created * 1000).fromNow();
@@ -48,15 +49,14 @@ function PostItem(props) {
 			<footer className="post-item--footer">
 				<Link to={permalink}>{permalink}</Link>
 			</footer>
-			{!over_18 ? null :
-				<OverlayBlock message={'NSFW'} />
-			}
+			{over_18 && !nsfwEnabled ? <OverlayBlock message={'NSFW'} /> : null}
 		</article>
 	)
 }
 
 PostItem.propTypes = {
-	data: PropTypes.object.isRequired
+	data: PropTypes.object.isRequired,
+	nsfwEnabled: PropTypes.bool,
 };
 
 export default PostItem;

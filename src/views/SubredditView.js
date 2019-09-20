@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-
 import Constants from '../config/Constants';
 import SubredditPostsListingContainer from '../containers/SubredditPostsListingContainer';
 import SubredditPostsSorting from '../components/SubredditPostsSorting';

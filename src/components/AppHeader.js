@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Constants from '../config/Constants';
-import ToggleNSFW from '../containers/ToggleNSFW';
-import ToggleTheme from '../containers/ToggleTheme';
+import NSFWToggleSwitchContainer from '../containers/NSFWToggleSwitchContainer';
+import ThemeToggleSwitchContainer from '../containers/ThemeToggleSwitchContainer';
 import redditAlien from '../images/redditAlien.svg';
 import redditLogo from '../images/redditLogo.svg';
 
@@ -25,10 +25,10 @@ function AppHeader() {
 					<NavLink className="main-nav-link" activeClassName="active" to="/r/all">All</NavLink>
 				</div>
 				<div className="app-header--column toggle-column">
-					<ToggleNSFW />
+					<NSFWToggleSwitchContainer />
 				</div>
 				<div className="app-header--column toggle-column">
-					<ToggleTheme />
+					<ThemeToggleSwitchContainer />
 				</div>
 				<div className="app-header--column title-column">
 					<h1>{strings.title}</h1>

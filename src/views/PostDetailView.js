@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Constants from '../config/Constants';
 import LoadError from '../components/LoadError';
 import Loading from '../components/Loading';
