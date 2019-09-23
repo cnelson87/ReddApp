@@ -59,7 +59,7 @@ class UserView extends React.Component {
 						}} />
 					</div>
 					<div className="sidebar-column">
-						{!sidebarData ? null : <UserSidebar data={sidebarData} />}
+						{sidebarData ? <UserSidebar data={sidebarData} /> : null}
 					</div>
 				</div>
 			</div>

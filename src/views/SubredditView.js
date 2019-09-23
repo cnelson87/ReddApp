@@ -79,7 +79,7 @@ class SubredditView extends React.Component {
 						}} />
 					</div>
 					<div className="sidebar-column">
-						{!sidebarData ? null : <SubredditSidebar data={sidebarData} />}
+						{sidebarData ? <SubredditSidebar data={sidebarData} /> : null}
 					</div>
 				</div>
 			</div>

@@ -6,7 +6,7 @@
 html, body {
 	max-width: 100%;
 	min-width: $min-width;
-	overflow-x: hidden;
+	// overflow-x: hidden; //breaks sidebar position sticky
 	width: 100%;
 }
 

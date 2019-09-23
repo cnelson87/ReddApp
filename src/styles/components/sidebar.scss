@@ -33,6 +33,20 @@
 	.sidebar--description {
 		overflow-wrap: break-word;
 	}
+
+	.sidebar--stats-row {
+		display: flex;
+	}
+
+	.sidebar--stats-col:first-child {
+		width: 48%;
+	}
+
+	.sidebar--stats-col + .sidebar--stats-col {
+		border-left: 1px solid $color-gray-light;
+		padding-left: 12px;
+		width: 52%;
+	}
 }
 
 //exends .sidebar
