@@ -1,9 +1,18 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import { createLogger } from 'redux-logger';
 import initialState from './initialState';
 import reducers from './reducers/reducers';
 
-export default createStore(
-	reducers,
-	initialState,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const storeArgs = [ reducers, initialState ];
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const logger = createLogger({
+	collapsed: true
+});
+
+if (process.env.NODE_ENV === 'development') {
+	storeArgs.push( composeEnhancers(applyMiddleware(logger)) );
+}
+
+export default createStore(...storeArgs);

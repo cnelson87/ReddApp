@@ -6,7 +6,7 @@ class PostsListingContainer extends React.Component {
 
 	render() {
 		const { data, nsfwEnabled } = this.props;
-		console.log('PostsListingContainer:data', data);
+		// console.log('PostsListingContainer:data', data);
 
 		return (
 			<PostsListing data={data} nsfwEnabled={nsfwEnabled} />
