@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import numeral from 'numeral';
 
 function SubredditSidebar(props) {
 	// console.log(props.data);
 	const { accounts_active, subscribers, public_description, display_name, icon_img, title } = props.data;
+	const _subscribers = subscribers ? numeral(subscribers).format('0.0a') : null;
+	const _active = accounts_active ? numeral(accounts_active).format('0.0a') : null;
 
 	return (
 		<aside className="sidebar">
@@ -15,7 +19,7 @@ function SubredditSidebar(props) {
 							<img src={icon_img} alt="" />
 						</div>
 					: null}
-					{"r/" + display_name}
+					<Link to={'/r/' + display_name}>{'r/' + display_name}</Link>
 				</h3>
 				{public_description ?
 					<div className="sidebar--description">
@@ -23,16 +27,16 @@ function SubredditSidebar(props) {
 					</div>
 				: null}
 				<div className="sidebar--stats-row">
-					{subscribers ?
+					{_subscribers ?
 						<div className="sidebar--stats-col">
-							<div>{subscribers}</div>
-							<div>Subscribers</div>
+							<div className="sidebar--stat-num">{_subscribers}</div>
+							<div className="sidebar--stat-lbl">Subscribers</div>
 						</div>
 					: null}
-					{accounts_active ?
+					{_active ?
 						<div className="sidebar--stats-col">
-							<div>{accounts_active}</div>
-							<div>Online</div>
+							<div className="sidebar--stat-num">{_active}</div>
+							<div className="sidebar--stat-lbl">Online</div>
 						</div>
 					: null}
 				</div>

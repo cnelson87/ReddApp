@@ -11,7 +11,7 @@
 	}
 
 	.sidebar--content {
-		padding: 5px 10px;
+		padding: 10px;
 	}
 
 	.sidebar--icon-img {
@@ -47,6 +47,16 @@
 		padding-left: 12px;
 		width: 52%;
 	}
+
+	.sidebar--stat-num {
+		font-weight: bold;
+		line-height: 1.25;
+	}
+
+	.sidebar--stat-lbl {
+		font-size: 0.875rem; //14px
+		line-height: 1.25;
+	}
 }
 
 //exends .sidebar
@@ -54,9 +64,10 @@
 
 	.user-sidebar--header {
 		background: rgba($color-black, 0.15);
+		border-radius: 4px 4px 0 0;
 		padding: 20px 10px 0;
 		height: 96px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 	}
 
 	.user-sidebar--icon-img {

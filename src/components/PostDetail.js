@@ -25,7 +25,7 @@ function PostDetail(props) {
 			</header>
 			<div className="post-detail--main">
 				<div className="post-detail--content">
-					<h3>{title}</h3>
+					<h2>{title}</h2>
 					{!selftext ? null :
 						<div className="post-detail--body">
 							<ReactMarkdown source={selftext} />

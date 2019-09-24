@@ -19,7 +19,7 @@
 	}
 
 	.post-item--header {
-		font-size: 0.875em; //14px
+		font-size: 0.875rem; //14px
 	}
 
 	.post-item--media {
@@ -34,6 +34,10 @@
 
 	.post-item--main {
 		display: flex;
+
+		h3 > a {
+			color: $color-gray-dark;
+		}
 	}
 
 	.post-item--content {
@@ -59,5 +63,12 @@
 body.dark-theme {
 	.post-item {
 		background: $color-gray-dark;
+
+		.post-item--main {
+
+			h3 > a {
+				color: $color-near-white;
+			}
+		}
 	}
 }

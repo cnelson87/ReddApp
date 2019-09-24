@@ -1,7 +1,7 @@
 @import '../config/variables';
 
 .post-detail {
-	background: rgba($color-white, 0.15);
+	background: $color-white;
 	margin-bottom: 10px;
 	padding: 5px 0;
 
@@ -12,8 +12,8 @@
 		padding: 5px 20px;
 	}
 
-	.post-item--header {
-		font-size: 0.875em; //14px
+	.post-detail--header {
+		font-size: 0.875rem; //14px
 	}
 
 	.post-detail--media {
@@ -42,5 +42,11 @@
 			display: block;
 			width: 100%;
 		}
+	}
+}
+
+body.dark-theme {
+	.post-detail {
+		background: $color-gray-dark;
 	}
 }

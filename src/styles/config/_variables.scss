@@ -7,11 +7,11 @@
 $color-black: #000;
 $color-white: #fff;
 $color-near-black: #1a1a1a;
-$color-near-white: #efefef;
 $color-gray-dark: #333;
 $color-gray-med: #999;
 $color-gray-light: #ccc;
-$color-gray-xlight: #dedede;
+$color-gray-xlight: #ddd;
+$color-near-white: #eee;
 $color-red: #900;
 $color-red-bright: #c00;
 $color-blue: #07d;
@@ -44,7 +44,7 @@ $breakpoint-desktop-xwide: 1920px;
 
 // Container Sizes
 $min-width: 360px;
-$max-width: 1200px;
+$max-width: 1240px;
 $mobile-max-width: 640px;
 $header-height: 80px;
 $footer-height: 80px;
