@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import momentLocalDate from '../utilities/momentLocalDate';
 
 function UserSidebar(props) {
 	// console.log(props.data);
-	const { name, icon_img, created, comment_karma, link_karma } = props.data;
+	const { name, icon_img, created_utc, comment_karma, link_karma } = props.data;
 	const { public_description } = props.data.subreddit;
 	const _icon_img = icon_img ? icon_img.split('?')[0] : null;
-	const _joined = moment(created * 1000).format('LL');
-	const _karma = (comment_karma + link_karma).toLocaleString();
+	const _created_utc = momentLocalDate(created_utc);
+	const _karma_total = (comment_karma + link_karma).toLocaleString();
 
 	return (
 		<aside className="sidebar user-sidebar">
@@ -20,16 +20,22 @@ function UserSidebar(props) {
 			: null}
 			<div className="sidebar--content">
 				<h3>{name}</h3>
-				<p><Link to={'/u/' + name}>{'u/' + name}</Link></p>
+				<p><Link to={'/u/' + name}>u/{name}</Link></p>
 				{public_description ?
 					<div className="sidebar--description">
 						<p>{public_description}</p>
 					</div>
 				: null}
-				<p>
-					karma: {_karma}<br />
-					joined: {_joined}
-				</p>
+				<div className="sidebar--stats-row">
+					<div className="sidebar--stats-col">
+						<div><strong>Karma</strong></div>
+						<div className="small">{_karma_total}</div>
+					</div>
+					<div className="sidebar--stats-col">
+						<div><strong>Joined</strong></div>
+						<div className="small">{_created_utc}</div>
+					</div>
+				</div>
 			</div>
 		</aside>
 	)

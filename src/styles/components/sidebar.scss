@@ -36,6 +36,7 @@
 
 	.sidebar--stats-row {
 		display: flex;
+		line-height: 1.25;
 	}
 
 	.sidebar--stats-col:first-child {
@@ -46,16 +47,6 @@
 		border-left: 1px solid $color-gray-light;
 		padding-left: 12px;
 		width: 52%;
-	}
-
-	.sidebar--stat-num {
-		font-weight: bold;
-		line-height: 1.25;
-	}
-
-	.sidebar--stat-lbl {
-		font-size: 0.875rem; //14px
-		line-height: 1.25;
 	}
 }
 

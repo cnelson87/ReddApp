@@ -80,3 +80,18 @@
 .visible {
 	@include visible;
 }
+
+// enforce 16x9 aspect ratio
+.ar-16x9 {
+	height: auto;
+	padding-top: 56.25%;
+	position: relative;
+	width: 100%;
+
+	> iframe, img, video {
+		@include absolute-window;
+		// need to override inline width & height
+		height: 100%;
+		width: 100%;
+	}
+}

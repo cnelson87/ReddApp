@@ -2,49 +2,50 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import YoutubeEmbed from '../components/YoutubeEmbed';
+import VideoEmbed from '../components/VideoEmbed';
 import CommentChain from '../components/CommentChain';
+import momentFromNow from '../utilities/momentFromNow';
 
 function PostDetail(props) {
-	const { id, author, created, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
+	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
 	const { comments } = props;
-	const mediaImage = !is_video && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
-	const thumbnailImage = !is_video && !mediaImage && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
-	const createdTimeAgo = moment(created * 1000).fromNow();
-	const video = !is_video ? null : {
-		height: media.reddit_video.height,
-		width: media.reddit_video.width,
-		src: media.reddit_video.fallback_url
-	};
+	const is_youtube = media && media.type && media.type === 'youtube.com';
+	const _created_utc = momentFromNow(created_utc);
+	const _media_image = !is_video && !is_youtube && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
+	const _thumbnail = !is_video && !is_youtube && !_media_image && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
 	// console.log(comments);
 
 	return (
 		<article className="post-detail" data-id={id}>
 			<header className="post-detail--header">
-				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/u/' + author}>u/{author}</Link> {createdTimeAgo}
+				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
 			</header>
 			<div className="post-detail--main">
 				<div className="post-detail--content">
 					<h2>{title}</h2>
-					{!selftext ? null :
+					{selftext ?
 						<div className="post-detail--body">
 							<ReactMarkdown source={selftext} />
 						</div>
-					}
+					: null}
 				</div>
 				<div className="post-detail--thumbnail">
-					{!thumbnailImage ? null :
-						<img src={thumbnailImage} alt="" />
-					}
+					{_thumbnail ?
+						<img src={_thumbnail} alt="" />
+					: null}
 				</div>
 			</div>
 			<div className="post-detail--media">
-				{!is_video ? null :
-					<video controls preload="auto" height={video.height} width={video.width} src={video.src}></video>
-				}
-				{!mediaImage ? null :
-					<img src={mediaImage} alt="" />
-				}
+				{is_youtube ?
+					<YoutubeEmbed data={media.oembed} />
+				: null}
+				{is_video ?
+					<VideoEmbed height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
+				: null}
+				{_media_image ?
+					<img src={_media_image} alt="" />
+				: null}
 			</div>
 			<footer className="post-detail--footer">
 				{comments.map((item) => {

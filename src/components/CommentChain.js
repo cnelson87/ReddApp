@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import momentFromNow from '../utilities/momentFromNow';
 
 function processReplies(replies) {
 
@@ -19,43 +19,43 @@ function processReplies(replies) {
 }
 
 function CommentChainReply(props) {
-	const { author, body, created, replies } = props.data;
-	const createdTimeAgo = moment(created * 1000).fromNow();
+	const { author, body, created_utc, replies } = props.data;
+	const _created_utc = momentFromNow(created_utc);
 
 	return (
 		<div className="comment-chain--reply">
 			<div className="comment-chain--reply-header">
-				<Link to={'/u/' + author}>u/{author}</Link> {createdTimeAgo}
+				<Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
 			</div>
 			<div className="comment-chain--reply-body">
 				<ReactMarkdown source={body} />
 			</div>
-			{!replies ? null :
+			{replies ?
 				<div className="comment-chain--reply-footer">
 					{processReplies(replies)}
 				</div>
-			}
+			: null}
 		</div>
 	)
 }
 
 function CommentChain(props) {
-	const { id, author, body, created, replies } = props.data;
-	const createdTimeAgo = moment(created * 1000).fromNow();
+	const { id, author, body, created_utc, replies } = props.data;
+	const _created_utc = momentFromNow(created_utc);
 
 	return (
 		<div className="comment-chain" data-id={id}>
 			<header className="comment-chain--header">
-				<Link to={'/u/' + author}>u/{author}</Link> {createdTimeAgo}
+				<Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
 			</header>
 			<div className="comment-chain--body">
 				<ReactMarkdown source={body} />
 			</div>
-			{!replies ? null :
+			{replies ?
 				<footer className="comment-chain--footer">
 					{processReplies(replies)}
 				</footer>
-			}
+			: null}
 		</div>
 	)
 }
