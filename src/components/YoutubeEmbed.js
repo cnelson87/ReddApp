@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function YoutubeEmbed(props) {
 	const { title, html } = props.data;
-	const id = html.split('/embed/')[1].split('?')[0];
+	const id = decodeURIComponent(html).split('/embed/')[1].split('?')[0];
 	const src = `https://www.youtube.com/embed/${id}`;
 
 	return (

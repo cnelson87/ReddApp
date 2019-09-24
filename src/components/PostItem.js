@@ -10,7 +10,7 @@ import momentFromNow from '../utilities/momentFromNow';
 function PostItem(props) {
 	const { id, author, created_utc, is_video, over_18, permalink, media, selftext, subreddit, thumbnail, title, url } = props.data;
 	const { nsfwEnabled } = props;
-	const is_youtube = media && media.type && media.type === 'youtube.com';
+	const is_youtube = media && media.type && media.type.includes('youtube');
 	const _created_utc = momentFromNow(created_utc);
 	const _media_image = !is_video && !is_youtube && url && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
 	const _thumbnail = !is_video && !is_youtube && !_media_image && thumbnail && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
