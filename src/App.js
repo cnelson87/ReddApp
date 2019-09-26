@@ -12,6 +12,14 @@ const redirectTo = `/r/${defaultSubreddit}`;
 
 class App extends React.Component {
 
+	componentDidMount() {
+		const htmlEl = document.documentElement;
+		if (Constants.isIE11) {htmlEl.classList.add('ie11');}
+		if (Constants.isEdge) {htmlEl.classList.add('edge');}
+		if (Constants.isAndroid) {htmlEl.classList.add('android');}
+		if (Constants.isIOS) {htmlEl.classList.add('ios');}
+	}
+
 	render() {
 		return (
 			<Router>
