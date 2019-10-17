@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Constants from './config/Constants';
+import ScrollToTop from './components/ScrollToTop';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import UserView from './views/UserView';
@@ -23,6 +24,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<Router>
+				<ScrollToTop />
 				<AppHeader />
 				<main className="app-main transition-container">
 					<div className="app-main--container">
