@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
+import VimeoEmbed from '../components/VimeoEmbed';
 import YoutubeEmbed from '../components/YoutubeEmbed';
 import VideoEmbed from '../components/VideoEmbed';
 import CommentChain from '../components/CommentChain';
@@ -10,10 +11,11 @@ import momentFromNow from '../utilities/momentFromNow';
 function PostDetail(props) {
 	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
 	const { comments } = props;
+	const is_vimeo = media && media.type && media.type.includes('vimeo');
 	const is_youtube = media && media.type && media.type.includes('youtube');
 	const _created_utc = momentFromNow(created_utc);
-	const _media_image = !is_video && !is_youtube && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
-	const _thumbnail = !is_video && !is_youtube && !_media_image && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
+	const _media_image = !is_video && !is_vimeo && !is_youtube && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
+	const _thumbnail = !is_video && !is_vimeo && !is_youtube && !_media_image && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
 	// console.log(comments);
 
 	return (
@@ -37,6 +39,9 @@ function PostDetail(props) {
 				</div>
 			</div>
 			<div className="post-detail--media">
+				{is_vimeo ?
+					<VimeoEmbed data={media.oembed} />
+				: null}
 				{is_youtube ?
 					<YoutubeEmbed data={media.oembed} />
 				: null}

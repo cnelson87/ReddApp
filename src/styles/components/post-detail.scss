@@ -18,8 +18,7 @@
 
 	.post-detail--media {
 
-		> img,
-		> video {
+		img, video {
 			display: block;
 			margin: 0 auto;
 			max-height: 720px;
@@ -38,7 +37,7 @@
 		margin-left: 20px;
 		width: 140px;
 
-		> img {
+		img {
 			display: block;
 			width: 100%;
 		}
