@@ -46,7 +46,7 @@ class UserView extends React.Component {
 		const { sidebarData } = this.state;
 
 		return (
-			<div className="user-view">
+			<div className="user-view react-transition fade-in">
 				<UserPostsSorting user={user} />
 				<div className="two-column-layout">
 					<div className="main-column">

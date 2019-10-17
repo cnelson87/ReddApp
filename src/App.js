@@ -24,7 +24,7 @@ class App extends React.Component {
 		return (
 			<Router>
 				<AppHeader />
-				<main className="app-main">
+				<main className="app-main transition-container">
 					<div className="app-main--container">
 						<Switch>
 							<Route path="/r/:subreddit/comments/:id/:stub/" component={PostDetailView} />

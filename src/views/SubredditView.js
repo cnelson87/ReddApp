@@ -66,7 +66,7 @@ class SubredditView extends React.Component {
 		const { sidebarData } = this.state;
 
 		return (
-			<div className="subreddit-view">
+			<div className="subreddit-view react-transition fade-in">
 				<SubredditPostsSorting subreddit={subreddit} />
 				<div className="two-column-layout">
 					<div className="main-column">
