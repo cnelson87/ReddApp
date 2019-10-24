@@ -7,6 +7,7 @@ import YoutubeEmbed from '../components/YoutubeEmbed';
 import VideoEmbed from '../components/VideoEmbed';
 import CommentChain from '../components/CommentChain';
 import momentFromNow from '../utilities/momentFromNow';
+import '../styles/components/post-detail.scss';
 
 function PostDetail(props) {
 	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
@@ -63,7 +64,7 @@ function PostDetail(props) {
 				})}
 			</footer>
 		</article>
-	)
+	);
 }
 
 PostDetail.propTypes = {

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import momentLocalDate from '../utilities/momentLocalDate';
+import '../styles/components/sidebar.scss';
 
 function UserSidebar(props) {
 	// console.log(props.data);
@@ -38,7 +39,7 @@ function UserSidebar(props) {
 				</div>
 			</div>
 		</aside>
-	)
+	);
 }
 
 UserSidebar.propTypes = {

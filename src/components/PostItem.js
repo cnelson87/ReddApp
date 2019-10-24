@@ -57,7 +57,7 @@ function PostItem(props) {
 			</footer>
 			{over_18 && !nsfwEnabled ? <OverlayBlock message={'NSFW'} /> : null}
 		</article>
-	)
+	);
 }
 
 PostItem.propTypes = {

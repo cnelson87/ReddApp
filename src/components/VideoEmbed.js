@@ -6,7 +6,7 @@ function VideoEmbed(props) {
 
 	return (
 		<video controls preload="auto" height={height} width={width} src={src}></video>
-	)
+	);
 }
 
 VideoEmbed.propTypes = {

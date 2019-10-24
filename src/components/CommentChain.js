@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 import momentFromNow from '../utilities/momentFromNow';
+import '../styles/components/comment-chain.scss';
 
 function processReplies(replies) {
 
@@ -15,7 +16,7 @@ function processReplies(replies) {
 				<CommentChainReply key={item.data.id} data={item.data} />
 			)
 		})
-	)
+	);
 }
 
 function CommentChainReply(props) {
@@ -36,7 +37,7 @@ function CommentChainReply(props) {
 				</div>
 			: null}
 		</div>
-	)
+	);
 }
 
 function CommentChain(props) {
@@ -57,7 +58,7 @@ function CommentChain(props) {
 				</footer>
 			: null}
 		</div>
-	)
+	);
 }
 
 CommentChain.propTypes = {

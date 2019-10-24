@@ -10,7 +10,7 @@ function YoutubeEmbed(props) {
 		<div className="ar-16x9 youtube-embed">
 			<iframe allowFullScreen frameBorder="0" height="360" width="640" src={src} title={title}></iframe>
 		</div>
-	)
+	);
 }
 
 YoutubeEmbed.propTypes = {

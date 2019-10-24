@@ -23,7 +23,7 @@ function AppFooter() {
 				</div>
 			</div>
 		</footer>
-	)
+	);
 }
 
 export default AppFooter;

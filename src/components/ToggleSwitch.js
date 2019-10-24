@@ -14,7 +14,7 @@ function ToggleSwitch(props) {
 				<div className="toggle-switch--button"></div>
 			</div>
 		</label>
-	)
+	);
 }
 
 ToggleSwitch.propTypes = {

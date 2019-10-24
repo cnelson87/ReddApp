@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import numeralDecimalAbbr from '../utilities/numeralDecimalAbbr';
+import '../styles/components/sidebar.scss';
 
 function SubredditSidebar(props) {
 	// console.log(props.data);
 	const { accounts_active, subscribers, public_description, display_name, icon_img, title } = props.data;
-	const _active = numeralDecimalAbbr(accounts_active);
-	const _subscribers = numeralDecimalAbbr(subscribers);
+	const _active = accounts_active ? numeralDecimalAbbr(accounts_active) : null;
+	const _subscribers = subscribers ? numeralDecimalAbbr(subscribers) : null;
 
 	return (
 		<aside className="sidebar">
@@ -27,18 +28,22 @@ function SubredditSidebar(props) {
 					</div>
 				: null}
 				<div className="sidebar--stats-row">
-					<div className="sidebar--stats-col">
-						<div><strong>{_subscribers}</strong></div>
-						<div className="small">Subscribers</div>
-					</div>
-					<div className="sidebar--stats-col">
-						<div><strong>{_active}</strong></div>
-						<div className="small">Online</div>
-					</div>
+					{_subscribers ?
+						<div className="sidebar--stats-col">
+							<div><strong>{_subscribers}</strong></div>
+							<div className="small">Subscribers</div>
+						</div>
+					: null}
+					{_active ?
+						<div className="sidebar--stats-col">
+							<div><strong>{_active}</strong></div>
+							<div className="small">Online</div>
+						</div>
+					: null}
 				</div>
 			</div>
 		</aside>
-	)
+	);
 }
 
 SubredditSidebar.propTypes = {

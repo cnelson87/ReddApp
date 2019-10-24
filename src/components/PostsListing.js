@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PostItem from '../components/PostItem';
+import '../styles/components/posts-listing.scss';
 
 function PostsListing(props) {
 	const { data, nsfwEnabled } = props;
@@ -11,7 +12,7 @@ function PostsListing(props) {
 				<PostItem key={item.data.id} data={item.data} nsfwEnabled={nsfwEnabled} />
 			))}
 		</div>
-	)
+	);
 }
 
 PostsListing.propTypes = {

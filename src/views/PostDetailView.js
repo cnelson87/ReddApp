@@ -3,9 +3,6 @@ import Constants from '../config/Constants';
 import LoadError from '../components/LoadError';
 import Loading from '../components/Loading';
 import PostDetail from '../components/PostDetail';
-import '../styles/components/loading.scss';
-import '../styles/components/post-detail.scss';
-import '../styles/components/comment-chain.scss';
 
 const { apiBaseUrl } = Constants;
 

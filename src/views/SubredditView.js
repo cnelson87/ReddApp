@@ -6,12 +6,6 @@ import SubredditPostsSorting from '../components/SubredditPostsSorting';
 import SubredditSidebar from '../components/SubredditSidebar';
 import allSidebarData from '../data/allSidebarData';
 import popularSidebarData from '../data/popularSidebarData';
-import '../styles/components/loading.scss';
-import '../styles/components/sub-sorting.scss';
-import '../styles/components/posts-listing.scss';
-import '../styles/components/sidebar.scss';
-import '../styles/components/load-more-cta.scss';
-import '../styles/components/overlay-block.scss';
 
 const { apiBaseUrl, defaultSubredditPostsSort } = Constants;
 

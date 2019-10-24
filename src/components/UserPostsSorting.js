@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Constants from '../config/Constants';
+import '../styles/components/sub-sorting.scss';
 
 const { userPostsSorting } = Constants;
 
@@ -18,7 +19,7 @@ function UserPostsSorting(props) {
 				)
 			})}
 		</div>
-	)
+	);
 }
 
 UserPostsSorting.propTypes = {

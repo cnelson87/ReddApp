@@ -9,7 +9,7 @@ function LoadError(props) {
 			<p>{message}</p>
 			<p><Link to="/">Go to default view</Link></p>
 		</div>
-	)
+	);
 }
 
 export default LoadError;

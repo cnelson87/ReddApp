@@ -4,12 +4,6 @@ import Constants from '../config/Constants';
 import UserPostsListingContainer from '../containers/UserPostsListingContainer';
 import UserPostsSorting from '../components/UserPostsSorting';
 import UserSidebar from '../components/UserSidebar';
-import '../styles/components/loading.scss';
-import '../styles/components/sub-sorting.scss';
-import '../styles/components/posts-listing.scss';
-import '../styles/components/sidebar.scss';
-import '../styles/components/load-more-cta.scss';
-import '../styles/components/overlay-block.scss';
 
 const { apiBaseUrl, defaultUserPostsSort } = Constants;
 
