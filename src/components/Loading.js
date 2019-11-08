@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/loading.scss';
 
 function Loading(props) {
-	const message = 'Loading...';
+	const { message = 'Loading...'} = props;
 
 	return (
 		<div className="loading">

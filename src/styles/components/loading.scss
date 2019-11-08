@@ -1,12 +1,10 @@
 @import '../config/variables';
 
 .loading {
-	align-items: center;
 	background: rgba($color-black, 0.15);
-	display: flex;
-	justify-content: center;
 	margin: $lg-spacing 0;
 	padding: $sm-spacing $lg-spacing;
+	text-align: center;
 
 	.loading--message {
 		color: $color-white;
