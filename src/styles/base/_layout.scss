@@ -55,6 +55,7 @@ body {
 	margin: 0 auto;
 	max-width: $max-width;
 	padding: $md-spacing 0;
+	position: relative;
 }
 
 .app-header--column,
@@ -102,6 +103,8 @@ body {
 .app-main--container {
 	margin: 0 auto;
 	max-width: $max-width;
+	min-height: 440px;
+	position: relative;
 }
 
 .app-logo {
