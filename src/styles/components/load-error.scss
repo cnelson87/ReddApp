@@ -1,0 +1,15 @@
+@import '../config/variables';
+
+.load-error {
+	border: 2px solid $color-red;
+	margin: $lg-spacing 0;
+	padding: $sm-spacing $lg-spacing;
+	text-align: center;
+
+	.load-error--message {
+		color: $color-red;
+		font-size: 1.5rem; //24px
+		line-height: 1.25; //30px
+		margin: 0;
+	}
+}
