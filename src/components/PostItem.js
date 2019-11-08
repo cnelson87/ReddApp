@@ -25,7 +25,7 @@ function PostItem(props) {
 			</header>
 			<div className="post-item--main">
 				<div className="post-item--content">
-					<h3><Link to={permalink}>{title}</Link></h3>
+					<h3><Link to={permalink}><span dangerouslySetInnerHTML={{__html: title }}></span></Link></h3>
 					{selftext ?
 						<div className="post-item--body">
 							<ReactMarkdown source={selftext} />
