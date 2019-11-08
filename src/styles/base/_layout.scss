@@ -6,15 +6,22 @@
 html, body {
 	max-width: 100%;
 	min-width: $min-width;
-	// overflow-x: hidden; //breaks sidebar position sticky
+	// overflow-x: hidden; //breaks .sidebar position sticky
 	width: 100%;
+}
+
+body {
+	background: $color-near-white;
+	// use overscroll-behavior to stop the "bounce" or refresh effect you get on mobile
+	// browsers when getting to the top or bottom scroll limits of the page.
+	overscroll-behavior: none;
 }
 
 .app {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	padding-top: $header-height + 4;
+	padding-top: $header-height;
 }
 
 .app-header,
@@ -44,7 +51,7 @@ html, body {
 .app-footer--container {
 	align-items: center;
 	display: flex;
-	height: $header-height;
+	height: $header-height - 4; //subtract border
 	margin: 0 auto;
 	max-width: $max-width;
 	padding: $md-spacing 0;

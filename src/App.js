@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Constants from './config/Constants';
-import ScrollToTop from './components/ScrollToTop';
-import AppHeader from './components/AppHeader';
-import AppFooter from './components/AppFooter';
+import ScrollToTop from './layout/ScrollToTop';
+import AppHeader from './layout/AppHeader';
+import AppFooter from './layout/AppFooter';
 import UserView from './views/UserView';
 import PostDetailView from './views/PostDetailView';
 import SubredditView from './views/SubredditView';

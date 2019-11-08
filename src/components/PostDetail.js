@@ -21,6 +21,9 @@ function PostDetail(props) {
 
 	return (
 		<article className="post-detail" data-id={id}>
+			<div className="post-detail--headerbar">
+				<Link className="post-detail--back-link" to={'/r/' + subreddit}>&lt; back to r/{subreddit}</Link>
+			</div>
 			<header className="post-detail--header">
 				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
 			</header>

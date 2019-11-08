@@ -3,13 +3,37 @@
 .post-detail {
 	background: $color-white;
 	margin-bottom: 10px;
-	padding: 5px 0;
+	margin-top: -#{$md-spacing};
 
+	@media (min-width: $breakpoint-desktop-min) {
+		margin-top: -#{$lg-spacing};
+	}
+
+	.post-detail--headerbar,
 	.post-detail--header,
 	.post-detail--footer,
 	.post-detail--media,
 	.post-detail--main {
 		padding: 5px 20px;
+	}
+
+	.post-detail--headerbar {
+		background: rgba($color-black, 0.8);
+		border-bottom: 4px solid $color-black;
+		display: flex;
+		justify-content: flex-end;
+		position: sticky;
+		top: $header-height;
+	}
+
+	.post-detail--back-link {
+		color: $color-white;
+		display: inline-block;
+		font-size: 0.875rem;
+
+		&:active, &:focus, &:hover {
+			color: $color-near-white;
+		}
 	}
 
 	.post-detail--header {

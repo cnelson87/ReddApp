@@ -46,13 +46,17 @@ class PostDetailView extends React.Component {
 
 		if (error) {
 			return (
-				<LoadError />
+				<div className="post-detail-view">
+					<LoadError />
+				</div>
 			);
 		}
 
 		if (!data) {
 			return (
-				<Loading />
+				<div className="post-detail-view">
+					<Loading />
+				</div>
 			);
 		}
 

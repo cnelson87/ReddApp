@@ -151,10 +151,12 @@ button,
 	appearance: none;
 	color: $color-blue;
 	cursor: pointer;
+	text-decoration: none;
 	width: auto;
 
 	&:hover, &:focus {
 		color: $color-blue-light;
+		text-decoration: none;
 	}
 
 	&.btn-lrg {
