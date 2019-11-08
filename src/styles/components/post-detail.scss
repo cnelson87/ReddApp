@@ -41,7 +41,7 @@
 	}
 
 	.post-detail--media {
-		max-height: 720px;
+		max-height: 730px; //720 + padding
 		overflow-y: auto;
 
 		img, video {
