@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
+import CommentChain from '../components/CommentChain';
+import VideoPlayer from '../components/VideoPlayer';
 import VimeoEmbed from '../components/VimeoEmbed';
 import YoutubeEmbed from '../components/YoutubeEmbed';
-import VideoEmbed from '../components/VideoEmbed';
-import CommentChain from '../components/CommentChain';
 import momentFromNow from '../utilities/momentFromNow';
+import parseVimeoId from '../utilities/parseVimeoId';
+import parseYoutubeId from '../utilities/parseYoutubeId';
 import '../styles/components/post-detail.scss';
 
 function PostDetail(props) {
@@ -44,13 +46,13 @@ function PostDetail(props) {
 			</div>
 			<div className="post-detail--media">
 				{is_vimeo ?
-					<VimeoEmbed data={media.oembed} />
+					<VimeoEmbed videoId={parseVimeoId(media.oembed.html)} title={media.oembed.title} />
 				: null}
 				{is_youtube ?
-					<YoutubeEmbed data={media.oembed} />
+					<YoutubeEmbed videoId={parseYoutubeId(media.oembed.html)} title={media.oembed.title} />
 				: null}
 				{is_video ?
-					<VideoEmbed height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
+					<VideoPlayer height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
 				: null}
 				{_media_image ?
 					<img src={_media_image} alt="" />

@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
+import OverlayBlock from '../components/OverlayBlock';
+import VideoPlayer from '../components/VideoPlayer';
 import VimeoEmbed from '../components/VimeoEmbed';
 import YoutubeEmbed from '../components/YoutubeEmbed';
-import VideoEmbed from '../components/VideoEmbed';
-import OverlayBlock from '../components/OverlayBlock';
 import momentFromNow from '../utilities/momentFromNow';
+import parseVimeoId from '../utilities/parseVimeoId';
+import parseYoutubeId from '../utilities/parseYoutubeId';
 
 function PostItem(props) {
 	const { id, author, created_utc, is_video, over_18, permalink, media, selftext, subreddit, thumbnail, title, url } = props.data;
@@ -40,13 +42,13 @@ function PostItem(props) {
 			</div>
 			<div className="post-item--media">
 				{is_vimeo ?
-					<VimeoEmbed data={media.oembed} />
+					<VimeoEmbed videoId={parseVimeoId(media.oembed.html)} title={media.oembed.title} />
 				: null}
 				{is_youtube ?
-					<YoutubeEmbed data={media.oembed} />
+					<YoutubeEmbed videoId={parseYoutubeId(media.oembed.html)} title={media.oembed.title} />
 				: null}
 				{is_video ?
-					<VideoEmbed height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
+					<VideoPlayer height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
 				: null}
 				{_media_image ?
 					<Link to={permalink}><img src={_media_image} alt="" /></Link>
