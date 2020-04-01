@@ -1,9 +1,9 @@
 import React from 'react';
-import Constants from '../config/Constants';
-import PostsListingContainer from '../containers/PostsListingContainer';
-import LoadError from '../components/LoadError';
-import Loading from '../components/Loading';
-import LoadMoreCTA from '../components/LoadMoreCTA';
+import Constants from 'config/Constants';
+import PostsListingContainer from 'containers/PostsListingContainer';
+import LoadError from 'components/LoadError';
+import Loading from 'components/Loading';
+import LoadMoreCTA from 'components/LoadMoreCTA';
 
 const { apiBaseUrl, postsLimit } = Constants;
 

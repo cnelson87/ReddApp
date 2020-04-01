@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import initialState from './initialState';
-import reducers from './reducers/reducers';
+import reducers from 'store/reducers/reducers';
 
 const storeArgs = [ reducers, initialState ];
 

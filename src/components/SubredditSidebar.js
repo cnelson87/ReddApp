@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import numeralDecimalAbbr from '../utilities/numeralDecimalAbbr';
-import '../styles/components/sidebar.scss';
+import numeralDecimalAbbr from 'utilities/numeralDecimalAbbr';
+import 'styles/components/sidebar.scss';
 
 function SubredditSidebar(props) {
 	// console.log(props.data);

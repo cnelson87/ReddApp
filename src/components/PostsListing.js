@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PostItem from '../components/PostItem';
-import '../styles/components/posts-listing.scss';
+import PostItem from 'components/PostItem';
+import 'styles/components/posts-listing.scss';
 
 function PostsListing(props) {
 	const { data, nsfwEnabled } = props;

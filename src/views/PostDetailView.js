@@ -1,8 +1,8 @@
 import React from 'react';
-import Constants from '../config/Constants';
-import LoadError from '../components/LoadError';
-import Loading from '../components/Loading';
-import PostDetail from '../components/PostDetail';
+import Constants from 'config/Constants';
+import LoadError from 'components/LoadError';
+import Loading from 'components/Loading';
+import PostDetail from 'components/PostDetail';
 
 const { apiBaseUrl } = Constants;
 

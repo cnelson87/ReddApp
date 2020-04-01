@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import OverlayBlock from '../components/OverlayBlock';
-import VideoPlayer from '../components/VideoPlayer';
-import VimeoEmbed from '../components/VimeoEmbed';
-import YoutubeEmbed from '../components/YoutubeEmbed';
-import momentFromNow from '../utilities/momentFromNow';
-import parseVimeoId from '../utilities/parseVimeoId';
-import parseYoutubeId from '../utilities/parseYoutubeId';
+import OverlayBlock from 'components/OverlayBlock';
+import VideoPlayer from 'components/VideoPlayer';
+import VimeoEmbed from 'components/VimeoEmbed';
+import YoutubeEmbed from 'components/YoutubeEmbed';
+import momentFromNow from 'utilities/momentFromNow';
+import parseVimeoId from 'utilities/parseVimeoId';
+import parseYoutubeId from 'utilities/parseYoutubeId';
 
 function PostItem(props) {
 	const { id, author, created_utc, is_video, over_18, permalink, media, selftext, subreddit, thumbnail, title, url } = props.data;

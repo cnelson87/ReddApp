@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/overlay-block.scss';
+import 'styles/components/overlay-block.scss';
 
 function OverlayBlock(props) {
 	const { message } = props;

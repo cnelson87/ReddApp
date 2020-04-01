@@ -1,5 +1,5 @@
-import initialState from '../initialState';
-import { TOGGLE_NSFW } from '../actions/actions';
+import initialState from 'store/initialState';
+import { TOGGLE_NSFW } from 'store/actions/actions';
 
 function nsfwReducer(nsfwEnabled = initialState.nsfwEnabled, action) {
 	switch(action.type) {

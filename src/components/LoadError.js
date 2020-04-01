@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/components/load-error.scss';
+import 'styles/components/load-error.scss';
 
 function LoadError(props) {
 	const { message = 'ERROR'} = props;

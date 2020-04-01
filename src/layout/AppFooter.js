@@ -1,5 +1,5 @@
 import React from 'react';
-import Constants from '../config/Constants';
+import Constants from 'config/Constants';
 
 const { strings } = Constants;
 

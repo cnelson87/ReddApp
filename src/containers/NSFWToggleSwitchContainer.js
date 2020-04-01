@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ToggleSwitch from '../components/ToggleSwitch';
-import { TOGGLE_NSFW } from '../store/actions/actions';
+import ToggleSwitch from 'components/ToggleSwitch';
+import { TOGGLE_NSFW } from 'store/actions/actions';
 
 class NSFWToggleSwitchContainer extends React.Component {
 

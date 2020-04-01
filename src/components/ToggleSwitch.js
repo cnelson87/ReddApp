@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/components/toggle-switch.scss';
+import 'styles/components/toggle-switch.scss';
 
 function ToggleSwitch(props) {
 	const { label, name, checked, onChange } = props;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Constants from '../config/Constants';
-import NSFWToggleSwitchContainer from '../containers/NSFWToggleSwitchContainer';
-import ThemeToggleSwitchContainer from '../containers/ThemeToggleSwitchContainer';
-import redditAlien from '../images/redditAlien.svg';
-import redditLogo from '../images/redditLogo.svg';
+import Constants from 'config/Constants';
+import NSFWToggleSwitchContainer from 'containers/NSFWToggleSwitchContainer';
+import ThemeToggleSwitchContainer from 'containers/ThemeToggleSwitchContainer';
+import redditAlien from 'images/redditAlien.svg';
+import redditLogo from 'images/redditLogo.svg';
 
 const { strings } = Constants;
 

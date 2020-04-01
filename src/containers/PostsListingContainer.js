@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PostsListing from '../components/PostsListing';
+import PostsListing from 'components/PostsListing';
 
 class PostsListingContainer extends React.Component {
 

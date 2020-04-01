@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Constants from '../config/Constants';
-import UserPostsListingContainer from '../containers/UserPostsListingContainer';
-import UserPostsSorting from '../components/UserPostsSorting';
-import UserSidebar from '../components/UserSidebar';
+import Constants from 'config/Constants';
+import UserPostsListingContainer from 'containers/UserPostsListingContainer';
+import UserPostsSorting from 'components/UserPostsSorting';
+import UserSidebar from 'components/UserSidebar';
 
 const { apiBaseUrl, defaultUserPostsSort } = Constants;
 

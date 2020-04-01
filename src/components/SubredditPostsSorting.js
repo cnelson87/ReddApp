@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import Constants from '../config/Constants';
-import '../styles/components/sub-sorting.scss';
+import Constants from 'config/Constants';
+import 'styles/components/sub-sorting.scss';
 
 const { subredditPostsSorting } = Constants;
 

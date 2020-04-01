@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import CommentChain from '../components/CommentChain';
-import VideoPlayer from '../components/VideoPlayer';
-import VimeoEmbed from '../components/VimeoEmbed';
-import YoutubeEmbed from '../components/YoutubeEmbed';
-import momentFromNow from '../utilities/momentFromNow';
-import parseVimeoId from '../utilities/parseVimeoId';
-import parseYoutubeId from '../utilities/parseYoutubeId';
-import '../styles/components/post-detail.scss';
+import CommentChain from 'components/CommentChain';
+import VideoPlayer from 'components/VideoPlayer';
+import VimeoEmbed from 'components/VimeoEmbed';
+import YoutubeEmbed from 'components/YoutubeEmbed';
+import momentFromNow from 'utilities/momentFromNow';
+import parseVimeoId from 'utilities/parseVimeoId';
+import parseYoutubeId from 'utilities/parseYoutubeId';
+import 'styles/components/post-detail.scss';
 
 function PostDetail(props) {
 	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;

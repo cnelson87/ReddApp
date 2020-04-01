@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Constants from '../config/Constants';
-import SubredditPostsListingContainer from '../containers/SubredditPostsListingContainer';
-import SubredditPostsSorting from '../components/SubredditPostsSorting';
-import SubredditSidebar from '../components/SubredditSidebar';
-import allSidebarData from '../data/allSidebarData';
-import popularSidebarData from '../data/popularSidebarData';
+import Constants from 'config/Constants';
+import SubredditPostsListingContainer from 'containers/SubredditPostsListingContainer';
+import SubredditPostsSorting from 'components/SubredditPostsSorting';
+import SubredditSidebar from 'components/SubredditSidebar';
+import allSidebarData from 'data/allSidebarData';
+import popularSidebarData from 'data/popularSidebarData';
 
 const { apiBaseUrl, defaultSubredditPostsSort } = Constants;
 
