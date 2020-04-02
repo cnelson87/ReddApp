@@ -1,7 +1,7 @@
 
 const initialState = {
 	nsfwEnabled: false,
-	darkTheme: false,
+	isDarkTheme: false,
 };
 
 export default initialState;

@@ -6,23 +6,23 @@ import { TOGGLE_THEME } from 'store/actions/actions';
 class ThemeToggleSwitchContainer extends React.Component {
 
 	render() {
-		const { darkTheme, toggleTheme } = this.props;
+		const { isDarkTheme, toggleTheme } = this.props;
 
-		if (darkTheme) {
+		if (isDarkTheme) {
 			document.body.classList.add('dark-theme');
 		} else {
 			document.body.classList.remove('dark-theme');
 		}
 
 		return (
-			<ToggleSwitch label={"Dark Theme"} name={"toggle-theme"} checked={darkTheme} onChange={toggleTheme} />
+			<ToggleSwitch label={"Dark Theme"} name={"toggle-theme"} checked={isDarkTheme} onChange={toggleTheme} />
 		);
 	}
 }
 
 function mapStateToProps(state) {
 	return {
-		darkTheme: state.darkTheme
+		isDarkTheme: state.isDarkTheme
 	};
 }
 

@@ -4,7 +4,7 @@ import themeReducer from './themeReducer';
 
 const reducers = combineReducers({
 	nsfwEnabled: nsfwReducer,
-	darkTheme: themeReducer
+	isDarkTheme: themeReducer
 });
 
 export default reducers;
