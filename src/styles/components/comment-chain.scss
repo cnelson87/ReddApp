@@ -5,8 +5,8 @@
 	margin-bottom: $sm-spacing;
 	padding: $sm-spacing 0;
 
-	p, dl, ol, ul, table {
-		margin-bottom: 0.5em;
+	p, ul, ol, dl, table {
+		margin: 0.5em 0;
 	}
 
 	.comment-chain--header,
