@@ -37,14 +37,22 @@ body {
 }
 
 .app-header {
-	border-bottom: 4px solid $color-black;
+	border-bottom: 4px solid $color-near-black;
 	position: fixed;
 	top: 0;
 	z-index: 2;
+
+	h1 {
+		margin: 0;
+	}
 }
 
 .app-footer {
-	border-top: 4px solid $color-black;
+	border-top: 4px solid $color-near-black;
+
+	p {
+		margin: 0;
+	}
 }
 
 .app-header--container,
@@ -58,9 +66,16 @@ body {
 	position: relative;
 }
 
+.app-footer--container {
+	height: $footer-height - 4; //subtract border
+}
+
 .app-header--column,
 .app-footer--column {
 	margin-right: $lg-spacing;
+}
+
+.app-header--column {
 
 	&.title-column {
 		flex-grow: 1;
@@ -92,7 +107,7 @@ body {
 }
 
 .app-main {
-	min-height: calc(100vh - #{$header-height + $header-height});
+	min-height: calc(100vh - #{$header-height + $footer-height});
 	padding: $md-spacing;
 
 	@media (min-width: $breakpoint-desktop-min) {
@@ -109,6 +124,7 @@ body {
 
 .app-logo {
 	align-items: center;
+	border-radius: 24px;
 	display: inline-flex;
 	padding: $sm-spacing;
 
