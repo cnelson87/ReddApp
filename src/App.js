@@ -4,9 +4,9 @@ import Constants from 'config/Constants';
 import ScrollToTop from 'layout/ScrollToTop';
 import AppHeader from 'layout/AppHeader';
 import AppFooter from 'layout/AppFooter';
-import UserView from 'views/UserView';
 import PostDetailView from 'views/PostDetailView';
-import SubredditView from 'views/SubredditView';
+import SubredditPageView from 'views/SubredditPageView';
+import UserPageView from 'views/UserPageView';
 
 const { defaultSubreddit } = Constants;
 const redirectTo = `/r/${defaultSubreddit}`;
@@ -33,13 +33,13 @@ class App extends React.Component {
 							<Route path="/r/:subreddit" render={(props) => {
 								const { subreddit } = props.match.params;
 								return (
-									<SubredditView key={subreddit} {...props} />
+									<SubredditPageView key={subreddit} {...props} />
 								)
 							}} />
 							<Route path="/user/:user" render={(props) => {
 								const { user } = props.match.params;
 								return (
-									<UserView key={user} {...props} />
+									<UserPageView key={user} {...props} />
 								)
 							}} />
 							<Redirect to={redirectTo} />

@@ -10,7 +10,7 @@ import popularSidebarData from 'data/popularSidebarData';
 
 const { subredditPostsSorting, defaultSubredditPostsSort } = Constants;
 
-class SubredditView extends React.Component {
+class SubredditPageView extends React.Component {
 
 	state = {
 		sidebarData: null,
@@ -84,4 +84,4 @@ class SubredditView extends React.Component {
 	}
 }
 
-export default SubredditView;
+export default SubredditPageView;

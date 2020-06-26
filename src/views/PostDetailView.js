@@ -59,7 +59,7 @@ class PostDetailView extends React.Component {
 		}
 
 		return (
-			<div className="post-detail-view">
+			<div className="post-detail-view react-transition fade-in">
 				<PostDetail data={data} comments={comments} />
 			</div>
 		);

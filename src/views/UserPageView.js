@@ -8,7 +8,7 @@ import UserSidebar from 'components/UserSidebar';
 
 const { userPostsSorting, defaultUserPostsSort } = Constants;
 
-class UserView extends React.Component {
+class UserPageView extends React.Component {
 
 	state = {
 		sidebarData: null,
@@ -42,7 +42,7 @@ class UserView extends React.Component {
 		const navRoot = `/user/${user}`;
 
 		return (
-			<div className="user-view react-transition fade-in">
+			<div className="user-page-view react-transition fade-in">
 				<SortingBar navRoot={navRoot} sortingParams={userPostsSorting} />
 				<div className="two-column-layout">
 					<div className="main-column">
@@ -63,4 +63,4 @@ class UserView extends React.Component {
 	}
 }
 
-export default UserView;
+export default UserPageView;

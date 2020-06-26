@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'config/axios';
 import Constants from 'config/Constants';
-import PostsListingContainer from 'containers/PostsListingContainer';
+import PostsListing from 'components/PostsListing';
 import LoadError from 'components/LoadError';
 import Loading from 'components/Loading';
 import LoadMoreCTA from 'components/LoadMoreCTA';
@@ -57,6 +58,7 @@ class UserPostsListingContainer extends React.Component {
 	}
 
 	render() {
+		const { nsfwEnabled } = this.props;
 		const { data, next, loading, error } = this.state;
 
 		if (error) {
@@ -73,7 +75,7 @@ class UserPostsListingContainer extends React.Component {
 
 		return (
 			<>
-				<PostsListingContainer data={data} />
+				<PostsListing data={data} nsfwEnabled={nsfwEnabled} />
 				{loading ? <Loading /> : null}
 				{!loading && next ? <LoadMoreCTA onClick={this.onLoadMoreClick} /> : null}
 			</>
@@ -81,4 +83,10 @@ class UserPostsListingContainer extends React.Component {
 	}
 }
 
-export default UserPostsListingContainer;
+function mapStateToProps(state) {
+	return {
+		nsfwEnabled: state.nsfwEnabled
+	};
+}
+
+export default connect(mapStateToProps)(UserPostsListingContainer);
