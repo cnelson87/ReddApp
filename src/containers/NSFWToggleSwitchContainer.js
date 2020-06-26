@@ -1,17 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ToggleSwitch from 'components/ToggleSwitch';
-import { TOGGLE_NSFW } from 'store/actions/actions';
+import { toggleNSFW } from 'store/actions/nsfw';
 
-class NSFWToggleSwitchContainer extends React.Component {
+function NSFWToggleSwitchContainer(props) {
+	const { nsfwEnabled, toggleNSFW } = props;
 
-	render() {
-		const { nsfwEnabled, toggleNSFW } = this.props;
-
-		return (
-			<ToggleSwitch label={"Show NSFW"} name={"toggle-nsfw"} checked={nsfwEnabled} onChange={toggleNSFW} />
-		);
-	}
+	return (
+		<ToggleSwitch identifier={"toggle-nsfw"} label={"Show NSFW"} checked={nsfwEnabled} onChange={toggleNSFW} />
+	);
 }
 
 function mapStateToProps(state) {
@@ -22,7 +19,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		toggleNSFW: () => dispatch({ type: TOGGLE_NSFW })
+		toggleNSFW: () => dispatch(toggleNSFW())
 	};
 }
 

@@ -1,10 +1,8 @@
 import React from 'react';
-import Constants from 'config/Constants';
+import axios from 'config/axios';
 import LoadError from 'components/LoadError';
 import Loading from 'components/Loading';
 import PostDetail from 'components/PostDetail';
-
-const { apiBaseUrl } = Constants;
 
 class PostDetailView extends React.Component {
 
@@ -16,13 +14,13 @@ class PostDetailView extends React.Component {
 	};
 
 	getData(url) {
-		let fetchUrl = `${apiBaseUrl}${url}.json`;
-		fetch(fetchUrl)
-			.then((response) => response.json())
-			.then((json) => {
+		const fetchUrl = `${url}.json`;
+		axios.get(fetchUrl)
+			.then((response) => {
+				// console.log('fetch response:', response);
 				this.setState({
-					data: json[0].data.children[0].data,
-					comments: json[1].data.children,
+					data: response.data[0].data.children[0].data,
+					comments: response.data[1].data.children,
 					loading: false,
 				})
 			}).catch((error) => {

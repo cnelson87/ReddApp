@@ -23,7 +23,7 @@ function PostItem(props) {
 	return (
 		<article className="post-item" data-id={id}>
 			<header className="post-item--header">
-				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
+				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/user/' + author}>u/{author}</Link> {_created_utc}
 			</header>
 			<div className="post-item--main">
 				<div className="post-item--content">

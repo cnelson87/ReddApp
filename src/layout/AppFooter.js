@@ -1,7 +1,5 @@
 import React from 'react';
-import Constants from 'config/Constants';
-
-const { strings } = Constants;
+import textStrings from 'config/textStrings';
 
 function AppFooter() {
 
@@ -10,16 +8,8 @@ function AppFooter() {
 			<div className="app-footer--container">
 				<div className="app-footer--column">
 					<p>
-						ReddApp by {strings.myEmail}
+						{textStrings.appFootnote}
 					</p>
-				</div>
-				<div className="app-footer--column">
-					<a href="https://reactjs.org/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Learn React
-					</a>
 				</div>
 			</div>
 		</footer>

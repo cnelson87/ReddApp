@@ -26,7 +26,7 @@ function CommentChainReply(props) {
 	return (
 		<div className="comment-chain--reply">
 			<div className="comment-chain--reply-header">
-				<Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
+				<Link to={'/user/' + author}>u/{author}</Link> {_created_utc}
 			</div>
 			<div className="comment-chain--reply-body">
 				<ReactMarkdown source={body} />
@@ -47,7 +47,7 @@ function CommentChain(props) {
 	return (
 		<div className="comment-chain" data-id={id}>
 			<header className="comment-chain--header">
-				<Link to={'/u/' + author}>u/{author}</Link> {_created_utc}
+				<Link to={'/user/' + author}>u/{author}</Link> {_created_utc}
 			</header>
 			<div className="comment-chain--body">
 				<ReactMarkdown source={body} />

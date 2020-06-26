@@ -21,7 +21,7 @@ function UserSidebar(props) {
 			: null}
 			<div className="sidebar--content">
 				<h3>{name}</h3>
-				<p><Link to={'/u/' + name}>u/{name}</Link></p>
+				<p><Link to={'/user/' + name}>u/{name}</Link></p>
 				{public_description ?
 					<div className="sidebar--description">
 						<p>{public_description}</p>

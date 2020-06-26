@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Constants from 'config/Constants';
+import textStrings from 'config/textStrings';
 import NSFWToggleSwitchContainer from 'containers/NSFWToggleSwitchContainer';
 import ThemeToggleSwitchContainer from 'containers/ThemeToggleSwitchContainer';
-import redditAlien from 'images/redditAlien.svg';
-import redditLogo from 'images/redditLogo.svg';
-
-const { strings } = Constants;
+import redditAlien from 'assets/images/redditAlien.svg';
+import redditLogo from 'assets/images/redditLogo.svg';
 
 function AppHeader() {
 
@@ -31,7 +29,7 @@ function AppHeader() {
 					<ThemeToggleSwitchContainer />
 				</div>
 				<div className="app-header--column title-column">
-					<h1>{strings.title}</h1>
+					<h1>{textStrings.appTitle}</h1>
 				</div>
 			</div>
 		</header>

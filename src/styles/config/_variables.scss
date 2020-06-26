@@ -5,19 +5,22 @@
 
 // Color Definitions
 $color-black: #000;
-$color-white: #fff;
-$color-near-black: #1a1a1a;
+$color-near-black: #111;
+$color-gray-xdark: #222;
 $color-gray-dark: #333;
-$color-gray-med: #999;
+$color-gray-med: #888;
 $color-gray-light: #ccc;
 $color-gray-xlight: #ddd;
 $color-near-white: #eee;
+$color-white: #fff;
 $color-red: #900;
 $color-red-bright: #c00;
 $color-blue: #07d;
 $color-blue-dark: #036;
 $color-blue-light: #7be;
-$transparent: rgba(0,0,0,0); //iOS friendly transparent
+$shade-dark: rgba(0, 0, 0, 0.85);
+$shade-light: rgba(0, 0, 0, 0.15);
+$transparent: rgba(0, 0, 0, 0); //iOS friendly transparent
 
 // Fonts
 $font-main: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

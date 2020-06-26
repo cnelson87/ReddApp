@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import axios from 'config/axios';
 import Constants from 'config/Constants';
 import UserPostsListingContainer from 'containers/UserPostsListingContainer';
-import UserPostsSorting from 'components/UserPostsSorting';
+import SortingBar from 'components/SortingBar';
 import UserSidebar from 'components/UserSidebar';
 
-const { apiBaseUrl, defaultUserPostsSort } = Constants;
+const { userPostsSorting, defaultUserPostsSort } = Constants;
 
 class UserView extends React.Component {
 
@@ -15,11 +16,11 @@ class UserView extends React.Component {
 	};
 
 	getSidebarData(user) {
-		fetch(`${apiBaseUrl}/user/${user}/about.json`)
-			.then((response) => response.json())
-			.then((json) => {
+		const fetchUrl = `/user/${user}/about.json`;
+		axios.get(fetchUrl)
+			.then((response) => {
 				this.setState({
-					sidebarData: json.data
+					sidebarData: response.data.data
 				});
 			}).catch((error) => {
 				// console.log('fetch error:', error);
@@ -38,13 +39,14 @@ class UserView extends React.Component {
 	render() {
 		const { user } = this.props.match.params;
 		const { sidebarData } = this.state;
+		const navRoot = `/user/${user}`;
 
 		return (
 			<div className="user-view react-transition fade-in">
-				<UserPostsSorting user={user} />
+				<SortingBar navRoot={navRoot} sortingParams={userPostsSorting} />
 				<div className="two-column-layout">
 					<div className="main-column">
-						<Route path="/u/:user/:sort?" render={(props) => {
+						<Route path="/user/:user/:sort?" render={(props) => {
 							const { user, sort = defaultUserPostsSort } = props.match.params;
 							// props.match.params.sort = sort;
 							return (

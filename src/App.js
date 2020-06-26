@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import Constants from 'config/Constants';
 import ScrollToTop from 'layout/ScrollToTop';
 import AppHeader from 'layout/AppHeader';
@@ -23,7 +23,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router>
+			<div className="app">
 				<ScrollToTop />
 				<AppHeader />
 				<main className="app-main transition-container">
@@ -36,7 +36,7 @@ class App extends React.Component {
 									<SubredditView key={subreddit} {...props} />
 								)
 							}} />
-							<Route path="/u/:user" render={(props) => {
+							<Route path="/user/:user" render={(props) => {
 								const { user } = props.match.params;
 								return (
 									<UserView key={user} {...props} />
@@ -47,9 +47,9 @@ class App extends React.Component {
 					</div>
 				</main>
 				<AppFooter />
-			</Router>
+			</div>
 		);
 	}
 }
 
-export default App;
+export default withRouter(App);

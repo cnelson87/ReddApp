@@ -18,7 +18,7 @@
 	}
 
 	.post-detail--headerbar {
-		background: rgba($color-black, 0.8);
+		background: $shade-dark;
 		border-bottom: 4px solid $color-black;
 		display: flex;
 		justify-content: flex-end;

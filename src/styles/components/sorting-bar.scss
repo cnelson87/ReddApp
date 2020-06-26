@@ -1,7 +1,7 @@
 @import '../config/variables';
 
-.sub-sorting {
-	background: rgba(0, 0, 0, 0.15);
+.sorting-bar {
+	background: $color-gray-light;
 	margin-bottom: 20px;
 	padding: 5px 20px;
 	width: 100%;
@@ -16,5 +16,4 @@
 			text-decoration: none;
 		}
 	}
-
 }

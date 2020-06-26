@@ -1,33 +1,33 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import axios from 'config/axios';
 import Constants from 'config/Constants';
 import SubredditPostsListingContainer from 'containers/SubredditPostsListingContainer';
-import SubredditPostsSorting from 'components/SubredditPostsSorting';
+import SortingBar from 'components/SortingBar';
 import SubredditSidebar from 'components/SubredditSidebar';
 import allSidebarData from 'data/allSidebarData';
 import popularSidebarData from 'data/popularSidebarData';
 
-const { apiBaseUrl, defaultSubredditPostsSort } = Constants;
+const { subredditPostsSorting, defaultSubredditPostsSort } = Constants;
 
 class SubredditView extends React.Component {
 
 	state = {
 		sidebarData: null,
-		// error: false,
 	};
 
 	getSidebarData(subreddit) {
-		fetch(`${apiBaseUrl}/r/${subreddit}/about.json`)
-			.then((response) => response.json())
-			.then((json) => {
+		const fetchUrl = `/r/${subreddit}/about.json`;
+		axios.get(fetchUrl)
+			.then((response) => {
+				// console.log('fetch response:', response);
 				this.setState({
-					sidebarData: json.data
+					sidebarData: response.data.data
 				});
 			}).catch((error) => {
 				// console.log('fetch error:', error);
 				this.setState({
-					sidebarData: {},
-					// error: true
+					sidebarData: null
 				});
 			});
 	}
@@ -48,9 +48,11 @@ class SubredditView extends React.Component {
 		const { subreddit } = this.props.match.params;
 		if (subreddit === 'all') {
 			this.getAllSidebarData();
-		} else if (subreddit === 'popular') {
+		}
+		else if (subreddit === 'popular') {
 			this.getPopularSidebarData();
-		} else {
+		}
+		else {
 			this.getSidebarData(subreddit);
 		}
 	}
@@ -58,10 +60,11 @@ class SubredditView extends React.Component {
 	render() {
 		const { subreddit } = this.props.match.params;
 		const { sidebarData } = this.state;
+		const navRoot = `/r/${subreddit}`;
 
 		return (
 			<div className="subreddit-view react-transition fade-in">
-				<SubredditPostsSorting subreddit={subreddit} />
+				<SortingBar navRoot={navRoot} sortingParams={subredditPostsSorting} />
 				<div className="two-column-layout">
 					<div className="main-column">
 						<Route path="/r/:subreddit/:sort?" render={(props) => {

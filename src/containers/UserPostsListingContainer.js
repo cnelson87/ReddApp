@@ -1,11 +1,12 @@
 import React from 'react';
+import axios from 'config/axios';
 import Constants from 'config/Constants';
 import PostsListingContainer from 'containers/PostsListingContainer';
 import LoadError from 'components/LoadError';
 import Loading from 'components/Loading';
 import LoadMoreCTA from 'components/LoadMoreCTA';
 
-const { apiBaseUrl, postsLimit } = Constants;
+const { postsLimit } = Constants;
 
 class UserPostsListingContainer extends React.Component {
 
@@ -19,12 +20,11 @@ class UserPostsListingContainer extends React.Component {
 	getData() {
 		const { user, sort } = this.props;
 		const { data, next } = this.state;
-		let fetchUrl = `${apiBaseUrl}/user/${user}.json?sort=${sort}limit=${postsLimit}&after=${next}`;
+		const fetchUrl = `/user/${user}.json?sort=${sort}limit=${postsLimit}&after=${next}`;
 		this.setState({loading: true}, () => {
-			fetch(fetchUrl)
-				.then((response) => response.json())
-				.then((json) => {
-					const { children:newData, after } = json.data;
+			axios.get(fetchUrl)
+				.then((response) => {
+					const { children:newData, after } = response.data.data;
 					//combine existing data with new data
 					const combinedData = [...data, ...newData];
 					//create a set of unique id's and destructure to an array
