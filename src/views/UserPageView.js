@@ -11,22 +11,21 @@ const { userPostsSorting, defaultUserPostsSort } = Constants;
 class UserPageView extends React.Component {
 
 	state = {
-		sidebarData: null,
-		// error: false,
+		sidebarData: null
 	};
 
 	getSidebarData(user) {
 		const fetchUrl = `/user/${user}/about.json`;
 		axios.get(fetchUrl)
 			.then((response) => {
+				// console.log('fetch response:', response);
 				this.setState({
 					sidebarData: response.data.data
 				});
 			}).catch((error) => {
 				// console.log('fetch error:', error);
 				this.setState({
-					sidebarData: {},
-					// error: true
+					sidebarData: null
 				});
 			});
 	}
