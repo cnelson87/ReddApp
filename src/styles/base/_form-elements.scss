@@ -14,9 +14,9 @@ legend {
 
 label, .label {
 	display: inline-block;
-	font-size: 1.0rem; //16px
+	font-size: 16px;
 	font-weight: normal;
-	line-height: 1.5; //24px
+	line-height: 24px;
 }
 
 input, select, textarea, button {
@@ -111,9 +111,9 @@ input[type='radio'] {
 	// setting exact size removes IE padding, makes uniform cross-browser
 	border: 0;
 	cursor: pointer;
-	height: 20px;
+	height: 24px;
 	padding: 0;
-	width: 20px;
+	width: 24px;
 
 	&[disabled] {
 		cursor: default;
@@ -131,6 +131,7 @@ input[type='range'] {
 	cursor: pointer;
 	height: auto;
 	padding: 0;
+	width: 100%;
 
 	&[disabled] {
 		cursor: default;
@@ -139,56 +140,3 @@ input[type='range'] {
 
 //
 // End range input
-
-// Start buttons
-//
-
-input[type='submit'],
-input[type='reset'],
-input[type='button'],
-button {
-	@include action-transition();
-	appearance: none;
-	background: transparent;
-	color: $color-blue;
-	cursor: pointer;
-	text-decoration: none;
-	width: auto;
-
-	&:hover, &:focus {
-		color: $color-blue-light;
-	}
-}
-
-//
-// End buttons
-
-// Start misc
-//
-
-// wrapper for form buttons
-.form-btns {
-	clear: both;
-	border-top: 2px solid $color-gray-light;
-	margin-bottom: 1.0em;
-	padding-top: 1.0em;
-}
-
-// message below an input field
-.help-block {
-	color: $color-gray-med;
-	display: block;
-	font-size: 12px;
-	line-height: 16px;
-}
-
-// error message
-.field-validation-error {
-	color: $color-red;
-	display: block;
-	font-size: 12px;
-	line-height: 16px;
-}
-
-//
-// End misc
