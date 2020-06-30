@@ -21,8 +21,10 @@ body.dark-theme {
 	}
 
 	.main-nav-link {
+		color: $color-near-white;
+
 		&.active {
-			color: $color-near-white;
+			color: $color-gray-dark;
 		}
 	}
 

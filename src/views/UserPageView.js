@@ -22,7 +22,8 @@ class UserPageView extends React.Component {
 				this.setState({
 					sidebarData: response.data.data
 				});
-			}).catch((error) => {
+			})
+			.catch((error) => {
 				// console.log('fetch error:', error);
 				this.setState({
 					sidebarData: null
@@ -46,11 +47,14 @@ class UserPageView extends React.Component {
 				<div className="two-column-layout">
 					<div className="main-column">
 						<Route path="/user/:user/:sort?" render={(props) => {
-							const { user, sort = defaultUserPostsSort } = props.match.params;
-							// props.match.params.sort = sort;
+							let { user, sort = defaultUserPostsSort } = props.match.params;
+							if (!userPostsSorting.includes(sort)) {
+								sort = defaultUserPostsSort;
+								props.match.params.sort = defaultUserPostsSort;
+							}
 							return (
 								<UserPostsListingContainer key={user + sort} user={user} sort={sort} {...props} />
-							)
+							);
 						}} />
 					</div>
 					<div className="sidebar-column">

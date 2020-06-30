@@ -1,5 +1,5 @@
 //
-// Base Typography
+// Typography
 // -----------------------------------------------------
 
 
@@ -14,10 +14,10 @@ a {
 	@include action-transition();
 	color: $color-blue;
 	text-decoration: none;
-}
-a:active, a:focus, a:hover {
-	color: $color-blue-light;
-	text-decoration: underline;
+
+	&:focus, &:hover {
+		color: $color-blue-light;
+	}
 }
 
 p, ul, ol, dl, table, address {

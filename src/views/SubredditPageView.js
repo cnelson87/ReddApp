@@ -13,7 +13,7 @@ const { subredditPostsSorting, defaultSubredditPostsSort } = Constants;
 class SubredditPageView extends React.Component {
 
 	state = {
-		sidebarData: null,
+		sidebarData: null
 	};
 
 	getSidebarData(subreddit) {
@@ -24,7 +24,8 @@ class SubredditPageView extends React.Component {
 				this.setState({
 					sidebarData: response.data.data
 				});
-			}).catch((error) => {
+			})
+			.catch((error) => {
 				// console.log('fetch error:', error);
 				this.setState({
 					sidebarData: null
@@ -63,16 +64,19 @@ class SubredditPageView extends React.Component {
 		const navRoot = `/r/${subreddit}`;
 
 		return (
-			<div className="subreddit-view react-transition fade-in">
+			<div className="subreddit-page-view react-transition fade-in">
 				<SortingBar navRoot={navRoot} sortingParams={subredditPostsSorting} />
 				<div className="two-column-layout">
 					<div className="main-column">
 						<Route path="/r/:subreddit/:sort?" render={(props) => {
-							const { subreddit, sort = defaultSubredditPostsSort } = props.match.params;
-							// props.match.params.sort = sort;
+							let { subreddit, sort = defaultSubredditPostsSort } = props.match.params;
+							if (!subredditPostsSorting.includes(sort)) {
+								sort = defaultSubredditPostsSort;
+								props.match.params.sort = defaultSubredditPostsSort;
+							}
 							return (
 								<SubredditPostsListingContainer key={subreddit + sort} subreddit={subreddit} sort={sort} {...props} />
-							)
+							);
 						}} />
 					</div>
 					<div className="sidebar-column">

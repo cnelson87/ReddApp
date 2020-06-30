@@ -1,5 +1,5 @@
 //
-// Base Layout
+// Layout
 // -----------------------------------------------------
 
 
@@ -26,8 +26,8 @@ body {
 
 .app-header,
 .app-footer {
-	background: $color-near-white;
-	// color: $color-near-black;
+	background: $color-white;
+	color: $color-black;
 	padding: 0 $md-spacing;
 	width: 100%;
 

@@ -55,7 +55,7 @@ function PostItem(props) {
 				: null}
 			</div>
 			<footer className="post-item--footer">
-				<Link to={permalink}>{permalink}</Link>
+				<Link to={{ pathname: permalink, state: {modal: true} }}>{permalink}</Link>
 			</footer>
 			{over_18 && !nsfwEnabled ? <OverlayBlock message={'NSFW'} /> : null}
 		</article>

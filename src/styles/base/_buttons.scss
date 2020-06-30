@@ -1,0 +1,42 @@
+//
+// Buttons
+// -----------------------------------------------------
+
+.btn {
+	@include action-transition();
+	appearance: none;
+	background: $color-white;
+	border: 1px solid $color-black;
+	border-radius: 0;
+	box-shadow: none;
+	color: $color-blue;
+	cursor: pointer;
+	display: inline-block;
+	font-family: $font-main;
+	font-size: 16px;
+	height: 32px; //line-height + padding + border
+	line-height: 20px;
+	margin: 0;
+	outline: 0;
+	padding: 5px 10px;
+	text-decoration: none;
+	width: auto;
+
+	&:hover, &:focus {
+		color: $color-blue-light;
+	}
+
+	&.btn-sm {
+		font-size: 14px;
+		height: 24px; //line-height + padding + border
+		line-height: 18px;
+		padding: 2px 5px;
+	}
+
+	&.btn-lg {
+		font-size: 24px;
+		height: 48px; //line-height + padding + border
+		line-height: 30px;
+		padding: 8px 32px;
+	}
+}

@@ -1,42 +1,13 @@
 @import '~styles/config/variables';
+@import '~styles/config/mixins';
 
 .post-detail {
-	background: $color-white;
-	margin-bottom: 10px;
-	margin-top: -#{$md-spacing};
 
-	@media (min-width: $breakpoint-desktop-min) {
-		margin-top: -#{$lg-spacing};
-	}
-
-	.post-detail--headerbar,
 	.post-detail--header,
 	.post-detail--footer,
 	.post-detail--media,
 	.post-detail--main {
 		padding: 5px 20px;
-	}
-
-	.post-detail--headerbar {
-		align-items: center;
-		background: $color-near-black;
-		display: flex;
-		height: 36px;
-		justify-content: flex-end;
-		position: sticky;
-		top: $header-height - 4;
-		z-index: 9;
-	}
-
-	.post-detail--back-link {
-		color: $color-white;
-		display: inline-block;
-		font-size: 14px;
-		line-height: 18px;
-
-		&:active, &:focus, &:hover {
-			color: $color-near-white;
-		}
 	}
 
 	.post-detail--header {
@@ -69,11 +40,5 @@
 			display: block;
 			width: 100%;
 		}
-	}
-}
-
-body.dark-theme {
-	.post-detail {
-		background: $color-gray-dark;
 	}
 }

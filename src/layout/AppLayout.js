@@ -1,6 +1,6 @@
 import React from 'react';
 import Constants from 'config/Constants';
-import ScrollToTop from './ScrollToTop';
+// import ScrollToTop from './ScrollToTop';
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 
@@ -22,7 +22,7 @@ class AppLayout extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<ScrollToTop />
+				{/*<ScrollToTop />*/}
 				<AppHeader />
 				{this.props.children}
 				<AppFooter />

@@ -39,7 +39,8 @@ class SubredditPostsListingContainer extends React.Component {
 						next: after,
 						loading: false,
 					});
-				}).catch((error) => {
+				})
+				.catch((error) => {
 					// console.log('fetch error:', error);
 					this.setState({
 						loading: false,
