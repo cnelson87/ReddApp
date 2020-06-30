@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "body-scroll-lock": "^3.0.3",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
     "numeral": "^2.0.6",
