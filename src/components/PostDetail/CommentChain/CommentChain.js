@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import momentFromNow from 'utilities/momentFromNow';
 import './CommentChain.scss';
 
-function processReplies(replies) {
+const propTypes = {
+	data: PropTypes.object.isRequired
+};
 
+function processReplies(replies) {
 	return (
 		replies.data.children.map((item) => {
 			if (item.kind === 'more') {
@@ -61,8 +64,8 @@ function CommentChain(props) {
 	);
 }
 
-CommentChain.propTypes = {
-	data: PropTypes.object.isRequired
-};
+CommentChainReply.propTypes = propTypes;
+
+CommentChain.propTypes = propTypes;
 
 export default CommentChain;

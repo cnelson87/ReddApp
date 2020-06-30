@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './SortingBar.scss';
 
+const propTypes = {
+	navRoot: PropTypes.string.isRequired,
+	sortingParams: PropTypes.array.isRequired,
+};
+
 function SortingBar(props) {
 	const { navRoot, sortingParams } = props;
 
@@ -19,9 +24,6 @@ function SortingBar(props) {
 	);
 }
 
-SortingBar.propTypes = {
-	navRoot: PropTypes.string.isRequired,
-	sortingParams: PropTypes.array.isRequired,
-};
+SortingBar.propTypes = propTypes;
 
 export default SortingBar;

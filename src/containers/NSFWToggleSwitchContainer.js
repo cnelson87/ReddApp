@@ -8,7 +8,7 @@ function NSFWToggleSwitchContainer(props) {
 	const { nsfwEnabled, toggleNSFW } = props;
 
 	return (
-		<ToggleSwitch identifier={"toggle-nsfw"} label={textStrings.labelEnableNSFW} checked={nsfwEnabled} onChange={toggleNSFW} />
+		<ToggleSwitch identifier={"toggle-nsfw"} label={textStrings.labelEnableNSFW} isChecked={nsfwEnabled} handleChange={toggleNSFW} />
 	);
 }
 

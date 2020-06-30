@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import momentLocalDate from 'utilities/momentLocalDate';
 import './Sidebar.scss';
 
+const propTypes = {
+	data: PropTypes.object.isRequired
+};
+
 function UserSidebar(props) {
 	// console.log(props.data);
 	const { name, icon_img, created_utc, comment_karma, link_karma } = props.data;
@@ -42,8 +46,6 @@ function UserSidebar(props) {
 	);
 }
 
-UserSidebar.propTypes = {
-	data: PropTypes.object.isRequired
-};
+UserSidebar.propTypes = propTypes;
 
 export default UserSidebar;

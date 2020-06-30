@@ -14,7 +14,7 @@ function ThemeToggleSwitchContainer(props) {
 	}
 
 	return (
-		<ToggleSwitch identifier={"toggle-theme"} label={textStrings.labelDarkTheme} checked={isDarkTheme} onChange={toggleTheme} />
+		<ToggleSwitch identifier={"toggle-theme"} label={textStrings.labelDarkTheme} isChecked={isDarkTheme} handleChange={toggleTheme} />
 	);
 }
 

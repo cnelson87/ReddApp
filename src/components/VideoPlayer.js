@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const propTypes = {
+	height: PropTypes.number.isRequired,
+	width: PropTypes.number.isRequired,
+	src: PropTypes.string.isRequired,
+};
+
 function VideoPlayer(props) {
 	const { height, width, src } = props;
 
@@ -9,10 +15,6 @@ function VideoPlayer(props) {
 	);
 }
 
-VideoPlayer.propTypes = {
-	height: PropTypes.number.isRequired,
-	width: PropTypes.number.isRequired,
-	src: PropTypes.string.isRequired,
-};
+VideoPlayer.propTypes = propTypes;
 
 export default VideoPlayer;

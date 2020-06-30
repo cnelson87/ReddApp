@@ -18,6 +18,8 @@ class UserPostsListingContainer extends React.Component {
 		error: null,
 	};
 
+	handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
+
 	getData() {
 		const { user, sort } = this.props;
 		const { data, next } = this.state;
@@ -50,7 +52,7 @@ class UserPostsListingContainer extends React.Component {
 		});
 	}
 
-	onLoadMoreClick = () => {
+	handleLoadMoreClick() {
 		this.getData();
 	}
 
@@ -78,7 +80,7 @@ class UserPostsListingContainer extends React.Component {
 			<>
 				<PostsListing data={data} nsfwEnabled={nsfwEnabled} />
 				{loading ? <Loading /> : null}
-				{!loading && next ? <LoadMoreCTA onClick={this.onLoadMoreClick} /> : null}
+				{!loading && next ? <LoadMoreCTA handleClick={this.handleLoadMoreClick} /> : null}
 			</>
 		);
 	}

@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import numeralDecimalAbbr from 'utilities/numeralDecimalAbbr';
 import './Sidebar.scss';
 
+const propTypes = {
+	data: PropTypes.object.isRequired
+};
+
 function SubredditSidebar(props) {
 	// console.log(props.data);
 	const { accounts_active, subscribers, public_description, display_name, icon_img, title } = props.data;
@@ -46,8 +50,6 @@ function SubredditSidebar(props) {
 	);
 }
 
-SubredditSidebar.propTypes = {
-	data: PropTypes.object.isRequired
-};
+SubredditSidebar.propTypes = propTypes;
 
 export default SubredditSidebar;

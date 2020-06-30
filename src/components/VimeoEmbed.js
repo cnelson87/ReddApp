@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const propTypes = {
+	videoId: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+};
+
 function VimeoEmbed(props) {
 	const { videoId, title } = props;
 	const src = `https://player.vimeo.com/video/${videoId}`;
@@ -12,9 +17,6 @@ function VimeoEmbed(props) {
 	);
 }
 
-VimeoEmbed.propTypes = {
-	videoId: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-};
+VimeoEmbed.propTypes = propTypes;
 
 export default VimeoEmbed;

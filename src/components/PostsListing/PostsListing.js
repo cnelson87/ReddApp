@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import PostItem from './PostItem';
 import './PostsListing.scss';
 
+const propTypes = {
+	data: PropTypes.array.isRequired,
+	nsfwEnabled: PropTypes.bool.isRequired,
+};
+
 function PostsListing(props) {
 	const { data, nsfwEnabled } = props;
 
@@ -15,9 +20,6 @@ function PostsListing(props) {
 	);
 }
 
-PostsListing.propTypes = {
-	data: PropTypes.array.isRequired,
-	nsfwEnabled: PropTypes.bool,
-};
+PostsListing.propTypes = propTypes;
 
 export default PostsListing;

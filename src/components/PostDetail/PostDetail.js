@@ -11,7 +11,14 @@ import parseVimeoId from 'utilities/parseVimeoId';
 import parseYoutubeId from 'utilities/parseYoutubeId';
 import './PostDetail.scss';
 
+const propTypes = {
+	data: PropTypes.object.isRequired,
+	comments: PropTypes.array.isRequired,
+};
+
 function PostDetail(props) {
+	// console.log(props.data);
+	// console.log(props.comments);
 	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
 	const { comments } = props;
 	const is_vimeo = media && media.type && media.type.includes('vimeo');
@@ -19,7 +26,6 @@ function PostDetail(props) {
 	const _created_utc = momentFromNow(created_utc);
 	const _media_image = !is_video && !is_vimeo && !is_youtube && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
 	const _thumbnail = !is_video && !is_vimeo && !is_youtube && !_media_image && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
-	// console.log(comments);
 
 	return (
 		<article className="post-detail react-transition fade-in" data-id={id}>
@@ -69,9 +75,6 @@ function PostDetail(props) {
 	);
 }
 
-PostDetail.propTypes = {
-	data: PropTypes.object.isRequired,
-	comments: PropTypes.array.isRequired
-};
+PostDetail.propTypes = propTypes;
 
 export default PostDetail;
