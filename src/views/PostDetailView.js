@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'config/axios';
-import LoadError from 'components/LoadError';
-import Loading from 'components/Loading';
-import PostDetail from 'components/PostDetail';
+import LoadError from 'components/LoadError/LoadError';
+import Loading from 'components/Loading/Loading';
+import PostDetail from 'components/PostDetail/PostDetail';
 
 class PostDetailView extends React.Component {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/components/loading.scss';
+import './Loading.scss';
 
 function Loading(props) {
 	const { message = 'Loading...'} = props;

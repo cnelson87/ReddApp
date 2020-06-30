@@ -7,9 +7,7 @@ function AppFooter() {
 		<footer className="app-footer">
 			<div className="app-footer--container">
 				<div className="app-footer--column">
-					<p>
-						{textStrings.appFootnote}
-					</p>
+					<p>{textStrings.appFootnote}</p>
 				</div>
 			</div>
 		</footer>

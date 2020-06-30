@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import axios from 'config/axios';
 import Constants from 'config/Constants';
 import SubredditPostsListingContainer from 'containers/SubredditPostsListingContainer';
-import SortingBar from 'components/SortingBar';
-import SubredditSidebar from 'components/SubredditSidebar';
+import SortingBar from 'components/SortingBar/SortingBar';
+import SubredditSidebar from 'components/Sidebar/SubredditSidebar';
 import allSidebarData from 'data/allSidebarData';
 import popularSidebarData from 'data/popularSidebarData';
 

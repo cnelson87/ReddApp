@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import axios from 'config/axios';
 import Constants from 'config/Constants';
 import UserPostsListingContainer from 'containers/UserPostsListingContainer';
-import SortingBar from 'components/SortingBar';
-import UserSidebar from 'components/UserSidebar';
+import SortingBar from 'components/SortingBar/SortingBar';
+import UserSidebar from 'components/Sidebar/UserSidebar';
 
 const { userPostsSorting, defaultUserPostsSort } = Constants;
 

@@ -2,49 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import CommentChain from 'components/CommentChain';
+import OverlayBlock from 'components/OverlayBlock/OverlayBlock';
 import VideoPlayer from 'components/VideoPlayer';
 import VimeoEmbed from 'components/VimeoEmbed';
 import YoutubeEmbed from 'components/YoutubeEmbed';
 import momentFromNow from 'utilities/momentFromNow';
 import parseVimeoId from 'utilities/parseVimeoId';
 import parseYoutubeId from 'utilities/parseYoutubeId';
-import 'styles/components/post-detail.scss';
 
-function PostDetail(props) {
-	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
-	const { comments } = props;
+function PostItem(props) {
+	const { id, author, created_utc, is_video, over_18, permalink, media, selftext, subreddit, thumbnail, title, url } = props.data;
+	const { nsfwEnabled } = props;
 	const is_vimeo = media && media.type && media.type.includes('vimeo');
 	const is_youtube = media && media.type && media.type.includes('youtube');
 	const _created_utc = momentFromNow(created_utc);
-	const _media_image = !is_video && !is_vimeo && !is_youtube && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
-	const _thumbnail = !is_video && !is_vimeo && !is_youtube && !_media_image && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
-	// console.log(comments);
+	const _media_image = !is_video && !is_vimeo && !is_youtube && url && url.match(/\.(gif|png|jpg|jpeg)$/i) ? url : null;
+	const _thumbnail = !is_video && !is_vimeo && !is_youtube && !_media_image && thumbnail && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
+	// console.log(props.data);
 
 	return (
-		<article className="post-detail" data-id={id}>
-			<div className="post-detail--headerbar">
-				<Link className="post-detail--back-link" to={'/r/' + subreddit}>&lt; back to r/{subreddit}</Link>
-			</div>
-			<header className="post-detail--header">
+		<article className="post-item" data-id={id}>
+			<header className="post-item--header">
 				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/user/' + author}>u/{author}</Link> {_created_utc}
 			</header>
-			<div className="post-detail--main">
-				<div className="post-detail--content">
-					<h2><span dangerouslySetInnerHTML={{__html: title }}></span></h2>
+			<div className="post-item--main">
+				<div className="post-item--content">
+					<h3><Link to={permalink}><span dangerouslySetInnerHTML={{__html: title }}></span></Link></h3>
 					{selftext ?
-						<div className="post-detail--body">
+						<div className="post-item--body">
 							<ReactMarkdown source={selftext} />
 						</div>
 					: null}
 				</div>
-				<div className="post-detail--thumbnail">
+				<div className="post-item--thumbnail">
 					{_thumbnail ?
-						<img src={_thumbnail} alt="" />
+						<Link to={permalink}><img src={_thumbnail} alt="" /></Link>
 					: null}
 				</div>
 			</div>
-			<div className="post-detail--media">
+			<div className="post-item--media">
 				{is_vimeo ?
 					<VimeoEmbed videoId={parseVimeoId(media.oembed.html)} title={media.oembed.title} />
 				: null}
@@ -55,26 +51,20 @@ function PostDetail(props) {
 					<VideoPlayer height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
 				: null}
 				{_media_image ?
-					<img src={_media_image} alt="" />
+					<Link to={permalink}><img src={_media_image} alt="" /></Link>
 				: null}
 			</div>
-			<footer className="post-detail--footer">
-				{comments.map((item) => {
-					if (item.kind === 'more') {
-						return null;
-					}
-					return (
-						<CommentChain key={item.data.id} data={item.data} />
-					)
-				})}
+			<footer className="post-item--footer">
+				<Link to={permalink}>{permalink}</Link>
 			</footer>
+			{over_18 && !nsfwEnabled ? <OverlayBlock message={'NSFW'} /> : null}
 		</article>
 	);
 }
 
-PostDetail.propTypes = {
+PostItem.propTypes = {
 	data: PropTypes.object.isRequired,
-	comments: PropTypes.array.isRequired
+	nsfwEnabled: PropTypes.bool,
 };
 
-export default PostDetail;
+export default PostItem;

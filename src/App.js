@@ -1,9 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import Constants from 'config/Constants';
-import ScrollToTop from 'layout/ScrollToTop';
-import AppHeader from 'layout/AppHeader';
-import AppFooter from 'layout/AppFooter';
+import AppLayout from 'layout/AppLayout';
 import PostDetailView from 'views/PostDetailView';
 import SubredditPageView from 'views/SubredditPageView';
 import UserPageView from 'views/UserPageView';
@@ -13,21 +11,11 @@ const redirectTo = `/r/${defaultSubreddit}`;
 
 class App extends React.Component {
 
-	componentDidMount() {
-		const htmlEl = document.documentElement;
-		if (Constants.isIE11) {htmlEl.classList.add('ie11');}
-		if (Constants.isEdge) {htmlEl.classList.add('edge');}
-		if (Constants.isAndroid) {htmlEl.classList.add('android');}
-		if (Constants.isIOS) {htmlEl.classList.add('ios');}
-	}
-
 	render() {
 		return (
-			<div className="app">
-				<ScrollToTop />
-				<AppHeader />
-				<main className="app-main transition-container">
-					<div className="app-main--container">
+			<AppLayout>
+				<main className="app-main">
+					<div className="app-main--container transition-container">
 						<Switch>
 							<Route path="/r/:subreddit/comments/:id/:stub/" component={PostDetailView} />
 							<Route path="/r/:subreddit" render={(props) => {
@@ -46,8 +34,7 @@ class App extends React.Component {
 						</Switch>
 					</div>
 				</main>
-				<AppFooter />
-			</div>
+			</AppLayout>
 		);
 	}
 }

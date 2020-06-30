@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ToggleSwitch from 'components/ToggleSwitch';
+import textStrings from 'config/textStrings';
+import ToggleSwitch from 'components/ToggleSwitch/ToggleSwitch';
 import { toggleTheme } from 'store/actions/theme';
 
 function ThemeToggleSwitchContainer(props) {
@@ -13,7 +14,7 @@ function ThemeToggleSwitchContainer(props) {
 	}
 
 	return (
-		<ToggleSwitch identifier={"toggle-theme"} label={"Dark Theme"} checked={isDarkTheme} onChange={toggleTheme} />
+		<ToggleSwitch identifier={"toggle-theme"} label={textStrings.labelDarkTheme} checked={isDarkTheme} onChange={toggleTheme} />
 	);
 }
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'config/axios';
 import Constants from 'config/Constants';
-import PostsListing from 'components/PostsListing';
-import LoadError from 'components/LoadError';
-import Loading from 'components/Loading';
-import LoadMoreCTA from 'components/LoadMoreCTA';
+import PostsListing from 'components/PostsListing/PostsListing';
+import LoadError from 'components/LoadError/LoadError';
+import Loading from 'components/Loading/Loading';
+import LoadMoreCTA from 'components/LoadMoreCTA/LoadMoreCTA';
 
 const { postsLimit } = Constants;
 

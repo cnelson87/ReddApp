@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 import momentFromNow from 'utilities/momentFromNow';
-import 'styles/components/comment-chain.scss';
+import './CommentChain.scss';
 
 function processReplies(replies) {
 
