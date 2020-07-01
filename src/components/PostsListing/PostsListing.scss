@@ -56,6 +56,20 @@
 		padding-right: 20px;
 		overflow-y: auto;
 	}
+
+	@media (max-width: $breakpoint-mobile-max) {
+		.post-item--footer {
+			display: none;
+		}
+
+		.post-item--content {
+			width: calc(100% - 100px);
+		}
+
+		.post-item--thumbnail {
+			width: 80px;
+		}
+	}
 }
 
 body.dark-theme {

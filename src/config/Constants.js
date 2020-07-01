@@ -26,7 +26,7 @@ const Constants = {
 	defaultSubreddit: 'popular', // 'all', 'popular'
 	defaultSubredditPostsSort: 'hot',
 	defaultUserPostsSort: 'new',
-	subredditPostsSorting: ['hot', 'new', 'controversial', 'top', 'rising'],
+	subredditPostsSorting: ['hot', 'new', 'top', 'rising', 'controversial'],
 	userPostsSorting: ['new', 'hot', 'top'],
 
 };
