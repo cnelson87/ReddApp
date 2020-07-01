@@ -1,8 +1,6 @@
 @import '~styles/config/variables';
 
-.posts-listing {
-	margin-bottom: 10px;
-}
+// .posts-listing {}
 
 .post-item {
 	background: $color-white;
@@ -19,7 +17,7 @@
 	}
 
 	.post-item--header {
-		font-size: 0.875rem; //14px
+		font-size: 14px;
 	}
 
 	.post-item--media {

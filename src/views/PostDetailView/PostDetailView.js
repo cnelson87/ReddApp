@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import axios from 'config/axios';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import LoadError from 'components/LoadError/LoadError';
@@ -17,6 +17,8 @@ class PostDetailView extends React.Component {
 	};
 
 	modalRef = React.createRef();
+
+	modalCloseBtnRef = React.createRef();
 
 	getData(url) {
 		const fetchUrl = `${url}.json`;
@@ -38,8 +40,20 @@ class PostDetailView extends React.Component {
 			});
 	}
 
+	closeView() {
+		const { isModal, history } = this.props;
+		const { subreddit } = this.props.match.params;
+		if (isModal) {
+			history.goBack();
+		}
+		else {
+			history.push('/r/' + subreddit);
+		}
+	}
+
 	componentDidMount() {
 		const { url } = this.props.match;
+		// this.modalCloseBtnRef.current.focus();
 		disableBodyScroll(this.modalRef.current);
 		this.getData(url);
 	}
@@ -49,27 +63,40 @@ class PostDetailView extends React.Component {
 	}
 
 	render() {
-		const { isModal, history } = this.props;
+		const { isModal } = this.props;
 		const { subreddit } = this.props.match.params;
 		const { data, comments, error } = this.state;
 
+		const closeBtn = (
+			<button type="button" className="btn btn-sm post-detail-view--close-btn" autoFocus={true}
+				ref={this.modalCloseBtnRef}
+				onClick={(event) => {
+					event.preventDefault();
+					this.closeView();
+				}}>{isModal ? 'X CLOSE' : 'r/' + subreddit}</button>
+		);
+
 		return (
-			<div className="post-detail-view" ref={this.modalRef}>
+			<div className="post-detail-view" ref={this.modalRef} onKeyDown={(event) => {
+				if (event.keyCode === 27) {
+					this.closeView();
+				}
+			}}>
 				<header className="post-detail-view--headerbar">
-					{isModal ? (
-						<button type="button" className="btn btn-sm post-detail-view--close-btn" onClick={(event) => {
-							event.preventDefault();
-							history.goBack();
-						}}>X CLOSE</button>
-					) : (
-						<Link className="btn btn-sm post-detail-view--close-btn" to={'/r/' + subreddit}>r/{subreddit}</Link>
-					)}
+					<div className="post-detail-view--headerbar-container">
+						{closeBtn}
+					</div>
 				</header>
 				<div className="post-detail-view--container">
 					{error ? <LoadError /> : null}
 					{!data ? <Loading /> : null}
 					{!error && data ? <PostDetail data={data} comments={comments} /> : null}
 				</div>
+				<button type="button" className="sr-only"
+					onFocus={(event) => {
+						this.modalRef.current.scrollTo(0,0);
+						this.modalCloseBtnRef.current.focus();
+					}}>reset focus</button>
 			</div>
 		);
 	}
