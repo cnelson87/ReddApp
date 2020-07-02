@@ -41,4 +41,14 @@
 			width: 100%;
 		}
 	}
+
+	@media (max-width: $breakpoint-mobile-max) {
+		.post-detail--content {
+			width: calc(100% - 100px);
+		}
+
+		.post-detail--thumbnail {
+			width: 80px;
+		}
+	}
 }

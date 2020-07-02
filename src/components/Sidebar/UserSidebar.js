@@ -20,7 +20,7 @@ function UserSidebar(props) {
 		<aside className="sidebar user-sidebar">
 			{_icon_img ?
 				<div className="user-sidebar--header">
-					<img className="user-sidebar--icon-img" src={_icon_img} alt="" />
+					<img src={_icon_img} className="user-sidebar--icon-img" alt="" />
 				</div>
 			: null}
 			<div className="sidebar--content">
