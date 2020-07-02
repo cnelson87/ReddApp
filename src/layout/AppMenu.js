@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'config/axios';
 import Constants from 'config/Constants';
+import NSFWToggleSwitchContainer from 'containers/NSFWToggleSwitchContainer';
+import ThemeToggleSwitchContainer from 'containers/ThemeToggleSwitchContainer';
 
 const { postsLimit } = Constants;
 
@@ -63,6 +65,14 @@ class AppMenu extends React.Component {
 		return (
 			<nav className={menuOpen ? 'app-menu open' : 'app-menu'}>
 				<div className="app-menu--container">
+					<div className="app-menu--header">
+						<div className="app-menu--header-column">
+							<NSFWToggleSwitchContainer />
+						</div>
+						<div className="app-menu--header-column">
+							<ThemeToggleSwitchContainer />
+						</div>
+					</div>
 					{data.map((item) => (
 						<div key={item.data.id} className="app-menu--nav-item">
 							<Link to={item.data.url} className="app-menu--nav-link">

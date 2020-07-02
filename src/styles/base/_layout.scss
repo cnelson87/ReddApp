@@ -48,6 +48,7 @@ body {
 	background: $color-blue-dark;
 	border-bottom: 4px solid $color-near-black;
 	bottom: auto;
+	color: $color-near-white;
 	height: 0;
 	overflow-y: auto;
 	padding: 0 $md-spacing;
@@ -65,12 +66,12 @@ body {
 	.app-menu--container {
 		margin: 0 auto;
 		max-width: $max-width;
-		padding: $md-spacing 0;
+		padding: $sm-spacing 0;
 		position: relative;
 	}
 
 	.app-menu--nav-item {
-		padding: 4px 0;
+		padding: $xs-spacing;
 	}
 
 	.app-menu--nav-link {
@@ -83,7 +84,7 @@ body {
 		border-radius: 50%;
 		display: inline-block;
 		height: 24px;
-		margin-right: 8px;
+		margin-right: $sm-spacing;
 		overflow: hidden;
 		width: 24px;
 
@@ -91,6 +92,25 @@ body {
 			display: block;
 			height: 100%;
 			width: 100%;
+		}
+	}
+
+	.app-menu--header {
+		align-items: center;
+		display: flex;
+		justify-content: flex-start;
+		padding: $sm-spacing 0;
+
+		@media (min-width: $breakpoint-tablet-min) {
+			display: none;
+		}
+
+		.app-menu--header-column {
+			padding: 0 $xs-spacing;
+		}
+
+		.app-menu--header-column + .app-menu--header-column {
+			margin-left: $sm-spacing;
 		}
 	}
 }
