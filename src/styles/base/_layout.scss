@@ -5,7 +5,6 @@
 
 html, body {
 	max-width: 100%;
-	min-width: $min-width;
 	// overflow-x: hidden; //breaks .sidebar position sticky
 	width: 100%;
 }
@@ -24,6 +23,78 @@ body {
 	padding-top: $header-height;
 }
 
+.app-logo {
+	align-items: center;
+	border-radius: 24px;
+	display: inline-flex;
+	padding: $sm-spacing;
+
+	.reddit-alien {
+		display: inline-block;
+		height: 32px;
+		width: 32px;
+	}
+
+	.reddit-logo {
+		display: inline-block;
+		height: auto;
+		margin-left: $sm-spacing;
+		width: 56px;
+	}
+}
+
+.app-menu {
+	@include absolute-window;
+	background: $color-blue-dark;
+	border-bottom: 4px solid $color-near-black;
+	bottom: auto;
+	height: 0;
+	overflow-y: auto;
+	padding: 0 $md-spacing;
+	top: 100%;
+	transition: height $transition-speed ease-out;
+
+	@media (min-width: $breakpoint-desktop-min) {
+		padding: 0 $xl-spacing;
+	}
+
+	&.open {
+		height: 440px;
+	}
+
+	.app-menu--container {
+		margin: 0 auto;
+		max-width: $max-width;
+		padding: $md-spacing 0;
+		position: relative;
+	}
+
+	.app-menu--nav-item {
+		padding: 4px 0;
+	}
+
+	.app-menu--nav-link {
+		align-items: center;
+		color: $color-white;
+		display: inline-flex;
+	}
+
+	.app-menu--nav-link-icon {
+		border-radius: 50%;
+		display: inline-block;
+		height: 24px;
+		margin-right: 8px;
+		overflow: hidden;
+		width: 24px;
+
+		> img, svg {
+			display: block;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
 .app-header,
 .app-footer {
 	background: $color-white;
@@ -37,9 +108,9 @@ body {
 }
 
 .app-header {
+	@include fixed-window;
 	border-bottom: 4px solid $color-near-black;
-	position: fixed;
-	top: 0;
+	bottom: auto;
 	z-index: 2;
 
 	h1 {
@@ -60,6 +131,7 @@ body {
 	align-items: center;
 	display: flex;
 	height: $header-height - 4; //subtract border
+	justify-content: flex-start;
 	margin: 0 auto;
 	max-width: $max-width;
 	padding: $md-spacing 0;
@@ -72,23 +144,27 @@ body {
 
 .app-header--column,
 .app-footer--column {
-	margin-right: $lg-spacing;
+	margin-right: $md-spacing;
+
+	@media (min-width: $breakpoint-desktop-min) {
+		margin-right: $lg-spacing;
+	}
 }
 
 .app-header--column {
 
-	&.title-column {
-		flex-grow: 1;
-		margin: 0;
-		text-align: right;
+	&.menu-column {
+		// flex-grow: 1;
+		margin-left: auto;
+		margin-right: 0;
+		// text-align: right;
 
-		@media (max-width: $breakpoint-tablet-max) {
-			display: none;
-		}
+		// @media (max-width: $breakpoint-tablet-max) {
+		// 	display: none;
+		// }
 	}
 
 	&.toggle-column {
-
 		@media (max-width: $breakpoint-mobile-max) {
 			display: none;
 		}
@@ -120,26 +196,6 @@ body {
 	max-width: $max-width;
 	min-height: 440px;
 	position: relative;
-}
-
-.app-logo {
-	align-items: center;
-	border-radius: 24px;
-	display: inline-flex;
-	padding: $sm-spacing;
-
-	.reddit-alien {
-		display: inline-block;
-		height: 32px;
-		width: 32px;
-	}
-
-	.reddit-logo {
-		display: inline-block;
-		height: auto;
-		margin-left: $sm-spacing;
-		width: 56px;
-	}
 }
 
 .two-column-layout {

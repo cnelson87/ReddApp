@@ -1,5 +1,6 @@
 
 const initialState = {
+	menuOpen: false,
 	nsfwEnabled: false,
 	isDarkTheme: false,
 };

@@ -23,7 +23,7 @@ class UserPostsListingContainer extends React.Component {
 	getData() {
 		const { user, sort } = this.props;
 		const { data, next } = this.state;
-		const fetchUrl = `/user/${user}.json?sort=${sort}limit=${postsLimit}&after=${next}`;
+		const fetchUrl = `/user/${user}.json?sort=${sort}&limit=${postsLimit}&after=${next}`;
 		this.setState({loading: true}, () => {
 			axios.get(fetchUrl)
 				.then((response) => {

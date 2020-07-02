@@ -20,3 +20,9 @@
 		}
 	}
 }
+
+body.dark-theme {
+	.sorting-bar {
+		background: $color-gray-med;
+	}
+}
