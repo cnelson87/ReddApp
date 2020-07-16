@@ -10,9 +10,9 @@ import './PostDetailView.scss';
 class PostDetailView extends React.Component {
 
 	state = {
+		loading: false,
 		data: null,
 		comments: null,
-		loading: false,
 		error: null,
 	};
 
@@ -22,22 +22,24 @@ class PostDetailView extends React.Component {
 
 	getData(url) {
 		const fetchUrl = `${url}.json`;
-		axios.get(fetchUrl)
-			.then((response) => {
-				// console.log('fetch response:', response);
-				this.setState({
-					data: response.data[0].data.children[0].data,
-					comments: response.data[1].data.children,
-					loading: false,
+		this.setState({loading: true}, () => {
+			axios.get(fetchUrl)
+				.then((response) => {
+					// console.log('fetch response:', response);
+					this.setState({
+						loading: false,
+						data: response.data[0].data.children[0].data,
+						comments: response.data[1].data.children,
+					});
+				})
+				.catch((error) => {
+					// console.log('fetch error:', error);
+					this.setState({
+						loading: false,
+						error: error,
+					});
 				});
-			})
-			.catch((error) => {
-				// console.log('fetch error:', error);
-				this.setState({
-					loading: false,
-					error: error,
-				});
-			});
+		});
 	}
 
 	closeView() {
@@ -53,7 +55,6 @@ class PostDetailView extends React.Component {
 
 	componentDidMount() {
 		const { url } = this.props.match;
-		// this.modalCloseBtnRef.current.focus();
 		disableBodyScroll(this.modalRef.current);
 		this.getData(url);
 	}
@@ -65,7 +66,7 @@ class PostDetailView extends React.Component {
 	render() {
 		const { isModal } = this.props;
 		const { subreddit } = this.props.match.params;
-		const { data, comments, error } = this.state;
+		const { loading, data, comments, error } = this.state;
 
 		const closeBtn = (
 			<button type="button" className="btn btn-sm post-detail-view--close-btn" autoFocus={true}
@@ -88,9 +89,9 @@ class PostDetailView extends React.Component {
 					</div>
 				</header>
 				<div className="post-detail-view--container">
+					{loading ? <Loading /> : null}
 					{error ? <LoadError /> : null}
-					{!data ? <Loading /> : null}
-					{!error && data ? <PostDetail data={data} comments={comments} /> : null}
+					{data && comments ? <PostDetail data={data} comments={comments} /> : null}
 				</div>
 				<button type="button" className="sr-only"
 					onFocus={(event) => {

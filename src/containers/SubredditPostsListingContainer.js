@@ -12,9 +12,9 @@ const { postsLimit } = Constants;
 class SubredditPostsListingContainer extends React.Component {
 
 	state = {
+		loading: false,
 		data: [],
 		next: null,
-		loading: false,
 		error: null,
 	};
 
@@ -37,9 +37,9 @@ class SubredditPostsListingContainer extends React.Component {
 						return combinedData.find((item) => item.data.id === id)
 					});
 					this.setState({
+						loading: false,
 						data: deDupedData,
 						next: after,
-						loading: false,
 					});
 				})
 				.catch((error) => {
@@ -62,7 +62,7 @@ class SubredditPostsListingContainer extends React.Component {
 
 	render() {
 		const { nsfwEnabled } = this.props;
-		const { data, next, loading, error } = this.state;
+		const { loading, data, next, error } = this.state;
 
 		if (error) {
 			return (
@@ -78,7 +78,7 @@ class SubredditPostsListingContainer extends React.Component {
 
 		return (
 			<>
-				<PostsListing data={data} nsfwEnabled={nsfwEnabled} />
+				{data ? <PostsListing data={data} nsfwEnabled={nsfwEnabled} /> : null}
 				{loading ? <Loading /> : null}
 				{!loading && next ? <LoadMoreCTA handleClick={this.handleLoadMoreClick} /> : null}
 			</>
