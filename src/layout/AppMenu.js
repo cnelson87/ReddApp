@@ -5,18 +5,9 @@ import axios from 'config/axios';
 import Constants from 'config/Constants';
 import NSFWToggleSwitchContainer from 'containers/NSFWToggleSwitchContainer';
 import ThemeToggleSwitchContainer from 'containers/ThemeToggleSwitchContainer';
+import compare from 'utilities/compare';
 
 const { postsLimit } = Constants;
-
-function compare( a, b ) {
-	if ( a.data.display_name.toLowerCase() < b.data.display_name.toLowerCase() ) {
-		return -1;
-	}
-	if ( a.data.display_name.toLowerCase() > b.data.display_name.toLowerCase() ) {
-		return 1;
-	}
-	return 0;
-}
 
 class AppMenu extends React.Component {
 

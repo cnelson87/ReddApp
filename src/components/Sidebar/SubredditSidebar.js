@@ -11,7 +11,7 @@ const propTypes = {
 };
 
 function SubredditSidebar(props) {
-	console.log(props.data);
+	// console.log(props.data);
 	const { accounts_active, subscribers, created_utc, public_description, display_name, icon_img, title } = props.data;
 	const _active = accounts_active ? numeralDecimalAbbr(accounts_active) : null;
 	const _subscribers = subscribers ? numeralDecimalAbbr(subscribers) : null;
