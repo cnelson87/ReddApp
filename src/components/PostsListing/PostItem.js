@@ -32,7 +32,7 @@ function PostItem(props) {
 			</header>
 			<div className="post-item--main">
 				<div className="post-item--content">
-					<h3><Link to={permalink}><span dangerouslySetInnerHTML={{__html: title }}></span></Link></h3>
+					<h3><Link to={{ pathname: permalink, state: {modal: true} }}><span dangerouslySetInnerHTML={{__html: title }}></span></Link></h3>
 					{selftext ?
 						<div className="post-item--body">
 							<ReactMarkdown source={selftext} />
@@ -41,7 +41,7 @@ function PostItem(props) {
 				</div>
 				<div className="post-item--thumbnail">
 					{_thumbnail ?
-						<Link to={permalink}><img src={_thumbnail} alt="" /></Link>
+						<Link to={{ pathname: permalink, state: {modal: true} }}><img src={_thumbnail} alt="" /></Link>
 					: null}
 				</div>
 			</div>
@@ -56,7 +56,7 @@ function PostItem(props) {
 					<VideoPlayer height={media.reddit_video.height} width={media.reddit_video.width} src={media.reddit_video.fallback_url} />
 				: null}
 				{_media_image ?
-					<Link to={permalink}><img src={_media_image} alt="" /></Link>
+					<Link to={{ pathname: permalink, state: {modal: true} }}><img src={_media_image} alt="" /></Link>
 				: null}
 			</div>
 			<footer className="post-item--footer">
