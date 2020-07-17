@@ -45,7 +45,7 @@ body {
 
 .app-menu {
 	@include absolute-window;
-	background: $color-blue-dark;
+	background: $color-blue-xdark;
 	border-bottom: 4px solid $color-near-black;
 	bottom: auto;
 	color: $color-near-white;
@@ -81,6 +81,7 @@ body {
 	}
 
 	.app-menu--nav-link-icon {
+		background: $color-white;
 		border-radius: 50%;
 		display: inline-block;
 		height: 24px;
@@ -88,10 +89,15 @@ body {
 		overflow: hidden;
 		width: 24px;
 
-		> img, svg {
+		> img {
 			display: block;
 			height: 100%;
 			width: 100%;
+		}
+
+		&.planet-icon {
+			background: $color-blue;
+			padding: 2px;
 		}
 	}
 
