@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './OverlayBlock.scss';
 
 const propTypes = {
-	message: PropTypes.string.isRequired
+	message: PropTypes.string
 };
 
 function OverlayBlock(props) {
@@ -11,7 +11,9 @@ function OverlayBlock(props) {
 
 	return (
 		<div className="overlay-block">
-			<p className="overlay-block--message">{message}</p>
+			{message ?
+				<p className="overlay-block--message">{message}</p>
+			: null}
 		</div>
 	);
 }
