@@ -4,7 +4,7 @@ import Constants from 'config/Constants';
 const { apiBaseUrl } = Constants;
 
 const instance = axios.create({
-  baseURL: apiBaseUrl
+	baseURL: apiBaseUrl
 });
 
 export default instance;
