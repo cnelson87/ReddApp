@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+
 import axios from 'config/axios';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import LoadError from 'components/LoadError/LoadError';
 import Loading from 'components/Loading/Loading';
 import PostDetail from 'components/PostDetail/PostDetail';
-import './PostDetailView.scss';
+import styles from './PostDetailView.module.scss';
 
 class PostDetailView extends React.Component {
 
@@ -69,8 +71,7 @@ class PostDetailView extends React.Component {
 		const { loading, data, comments, error } = this.state;
 
 		const closeBtn = (
-			<button type="button" className="btn btn-sm post-detail-view--close-btn" autoFocus={true}
-				ref={this.modalCloseBtnRef}
+			<button type="button" className={`btn btn-sm ${styles.closeBtn}`} autoFocus={true} ref={this.modalCloseBtnRef}
 				onClick={(event) => {
 					event.preventDefault();
 					this.closeView();
@@ -78,17 +79,17 @@ class PostDetailView extends React.Component {
 		);
 
 		return (
-			<div className="post-detail-view" ref={this.modalRef} onKeyDown={(event) => {
+			<div className={styles.component} ref={this.modalRef} onKeyDown={(event) => {
 				if (event.keyCode === 27) {
 					this.closeView();
 				}
 			}}>
-				<header className="post-detail-view--headerbar">
-					<div className="post-detail-view--headerbar-container">
+				<header className={styles.header}>
+					<div className={styles.headerInner}>
 						{closeBtn}
 					</div>
 				</header>
-				<div className="post-detail-view--container">
+				<div className={styles.main}>
 					{loading ? <Loading /> : null}
 					{error ? <LoadError /> : null}
 					{data && comments ? <PostDetail data={data} comments={comments} /> : null}
@@ -102,5 +103,11 @@ class PostDetailView extends React.Component {
 		);
 	}
 }
+
+PostDetailView.propTypes = {
+	isModal: PropTypes.bool.isRequired,
+	history: PropTypes.object.isRequired,
+	match: PropTypes.object.isRequired,
+};
 
 export default withRouter(PostDetailView);

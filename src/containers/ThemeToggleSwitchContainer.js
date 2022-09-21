@@ -1,33 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import textStrings from 'config/textStrings';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setIsDarkTheme } from 'store/reducers/appVars';
 import ToggleSwitch from 'components/ToggleSwitch/ToggleSwitch';
-import { toggleTheme } from 'store/actions/theme';
 
-function ThemeToggleSwitchContainer(props) {
-	const { isDarkTheme, toggleTheme } = props;
+function ThemeToggleSwitchContainer() {
+	const dispatch = useDispatch();
+	const { isDarkTheme } = useSelector((state) => state.appVars);
 
-	if (isDarkTheme) {
-		document.body.classList.add('dark-theme');
-	} else {
-		document.body.classList.remove('dark-theme');
-	}
+	const handleToggleChange = () => {
+		dispatch(setIsDarkTheme(!isDarkTheme));
+	};
 
 	return (
-		<ToggleSwitch identifier={"toggle-theme"} label={textStrings.labelDarkTheme} isChecked={isDarkTheme} handleChange={toggleTheme} />
+		<ToggleSwitch identifier={'toggle-theme'} label={'Night Mode'} isChecked={isDarkTheme} handleChange={handleToggleChange} />
 	);
 }
 
-function mapStateToProps(state) {
-	return {
-		isDarkTheme: state.isDarkTheme
-	};
-}
-
-function mapDispatchToProps(dispatch) {
-	return {
-		toggleTheme: () => dispatch(toggleTheme())
-	};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ThemeToggleSwitchContainer);
+export default ThemeToggleSwitchContainer;

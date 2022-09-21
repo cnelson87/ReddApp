@@ -2,6 +2,7 @@
 // Mixins
 // -----------------------------------------------------
 // sass-lint:disable no-important
+@use 'sass:math';
 
 @mixin accelerate {
 	backface-visibility: hidden;
@@ -74,5 +75,5 @@
 
 // Width Fraction to Percentage
 @mixin width-percentage($numer, $denom) {
-	width: percentage($numer / $denom);
+	width: math.percentage(math.div($numer, $denom));
 }

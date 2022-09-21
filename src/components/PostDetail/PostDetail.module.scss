@@ -1,0 +1,54 @@
+@import '~styles/config/variables';
+@import '~styles/config/mixins';
+
+.component {
+
+	.header,
+	.footer,
+	.media,
+	.main {
+		padding: 5px 0;
+	}
+
+	.header {
+		font-size: 0.875rem;
+	}
+
+	.media {
+		max-height: 730px; //720 + padding
+		overflow-y: auto;
+
+		img, video {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.main {
+		display: flex;
+	}
+
+	.content {
+		width: calc(100% - 160px);
+	}
+
+	.thumbnail {
+		margin-left: 20px;
+		width: 140px;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile-max) {
+		.content {
+			width: calc(100% - 100px);
+		}
+
+		.thumbnail {
+			width: 80px;
+		}
+	}
+}

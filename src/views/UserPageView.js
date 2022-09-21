@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+
 import axios from 'config/axios';
 import Constants from 'config/Constants';
 import UserPostsListingContainer from 'containers/UserPostsListingContainer';
@@ -65,5 +67,9 @@ class UserPageView extends React.Component {
 		);
 	}
 }
+
+UserPageView.propTypes = {
+	match: PropTypes.object.isRequired
+};
 
 export default UserPageView;

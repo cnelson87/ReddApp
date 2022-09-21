@@ -1,0 +1,28 @@
+@import '~styles/config/variables';
+
+.component {
+	background: $color-gray-light;
+	margin-bottom: 20px;
+	padding: 5px 20px;
+	position: sticky;
+	top: 84px;
+	width: 100%;
+	z-index: 5;
+
+	a {
+		display: inline-block;
+		font-weight: bold;
+		margin-left: 10px;
+
+		&:global(.active) {
+			color: $color-white;
+			text-decoration: none;
+		}
+	}
+}
+
+:global(body.dark-theme) {
+	.component {
+		background: $color-gray-med;
+	}
+}

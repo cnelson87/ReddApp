@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-	videoId: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-};
-
-function YoutubeEmbed(props) {
-	const { videoId, title } = props;
+function YoutubeEmbed({ videoId, title }) {
 	const src = `https://www.youtube.com/embed/${videoId}`;
 
 	return (
@@ -17,6 +11,9 @@ function YoutubeEmbed(props) {
 	);
 }
 
-YoutubeEmbed.propTypes = propTypes;
+YoutubeEmbed.propTypes = {
+	videoId: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+};
 
 export default YoutubeEmbed;

@@ -1,42 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import momentLocalDate from 'utilities/momentLocalDate';
-import './Sidebar.scss';
+import styles from './Sidebar.module.scss';
 
-const propTypes = {
-	data: PropTypes.object.isRequired
-};
-
-function UserSidebar(props) {
-	// console.log(props.data);
-	const { name, icon_img, created_utc, comment_karma, link_karma } = props.data;
-	const { public_description } = props.data.subreddit;
+function UserSidebar({ data }) {
+	const { name, icon_img, created_utc, total_karma } = data;
+	const { title, public_description } = data.subreddit;
 	const _icon_img = icon_img ? icon_img.split('?')[0] : null;
+	const _total_karma = (total_karma).toLocaleString();
 	const _created_utc = momentLocalDate(created_utc);
-	const _karma_total = (comment_karma + link_karma).toLocaleString();
 
 	return (
-		<aside className="sidebar user-sidebar">
-			{_icon_img ?
-				<div className="user-sidebar--header">
-					<img src={_icon_img} className="user-sidebar--icon-img" alt="" />
+		<aside className={`${styles.sidebar} ${styles.userSidebar}`}>
+			{_icon_img ? (
+				<div className={styles.header}>
+					<img src={_icon_img} className={styles.userIconImg} alt="" />
 				</div>
-			: null}
-			<div className="sidebar--content">
-				<h3>{name}</h3>
+			) : null}
+			<div className={styles.content}>
+				<h3>{title}</h3>
 				<p><Link to={'/user/' + name}>u/{name}</Link></p>
-				{public_description ?
-					<div className="sidebar--description">
+				{public_description ? (
+					<div className={styles.description}>
 						<p>{public_description}</p>
 					</div>
-				: null}
-				<div className="sidebar--stats-row">
-					<div className="sidebar--stats-col">
+				) : null}
+				<div className={styles.statsRow}>
+					<div className={styles.statsCol}>
 						<div><strong>Karma</strong></div>
-						<div className="small">{_karma_total}</div>
+						<div className="small">{_total_karma}</div>
 					</div>
-					<div className="sidebar--stats-col">
+					<div className={styles.statsCol}>
 						<div><strong>Joined</strong></div>
 						<div className="small">{_created_utc}</div>
 					</div>
@@ -46,6 +42,8 @@ function UserSidebar(props) {
 	);
 }
 
-UserSidebar.propTypes = propTypes;
+UserSidebar.propTypes = {
+	data: PropTypes.object.isRequired
+};
 
 export default UserSidebar;

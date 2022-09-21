@@ -1,29 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import './SortingBar.scss';
 
-const propTypes = {
-	navRoot: PropTypes.string.isRequired,
-	sortingParams: PropTypes.array.isRequired,
-};
+import styles from './SortingBar.module.scss';
 
-function SortingBar(props) {
-	const { navRoot, sortingParams } = props;
+function SortingBar({ navRoot, sortingParams }) {
 
 	return (
-		<div className="sorting-bar">
+		<div className={styles.component}>
 			sort:
 			{sortingParams.map((sort) => {
 				const linkTo = `${navRoot}/${sort}`;
 				return (
-					<NavLink key={sort} to={linkTo} className="sorting-bar--link" activeClassName="active">{sort}</NavLink>
+					<NavLink key={sort} to={linkTo} activeClassName="active">{sort}</NavLink>
 				);
 			})}
 		</div>
 	);
 }
 
-SortingBar.propTypes = propTypes;
+SortingBar.propTypes = {
+	navRoot: PropTypes.string.isRequired,
+	sortingParams: PropTypes.array.isRequired,
+};
 
 export default SortingBar;

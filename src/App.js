@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+
 import Constants from 'config/Constants';
-import AppLayout from 'layout/AppLayout';
+import AppLayout from 'components/AppLayout/AppLayout';
 import PostDetailView from 'views/PostDetailView/PostDetailView';
 import SubredditPageView from 'views/SubredditPageView';
 import UserPageView from 'views/UserPageView';
@@ -16,8 +18,8 @@ class App extends React.Component {
 		this.previousLocation = this.props.location;
 	}
 
-	componentWillUpdate() {
-		let { location } = this.props;
+	UNSAFE_componentWillUpdate() {
+		const { location } = this.props;
 		if (!(location.state && location.state.modal)) {
 			this.previousLocation = location;
 		}
@@ -62,5 +64,9 @@ class App extends React.Component {
 		);
 	}
 }
+
+App.propTypes = {
+	location: PropTypes.object
+};
 
 export default withRouter(App);

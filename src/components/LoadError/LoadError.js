@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './LoadError.scss';
 
-const propTypes = {
-	message: PropTypes.string
-};
+import styles from './LoadError.module.scss';
 
-function LoadError(props) {
-	const { message = 'ERROR'} = props;
+function LoadError({ message = 'ERROR'}) {
 
 	return (
-		<div className="load-error">
-			<p className="load-error--message">{message}</p>
+		<div className={styles.component}>
+			<p className={styles.message}>{message}</p>
 			<Link to="/">Homepage</Link>
 		</div>
 	);
 }
 
-LoadError.propTypes = propTypes;
+LoadError.propTypes = {
+	message: PropTypes.string
+};
 
 export default LoadError;

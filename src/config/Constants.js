@@ -1,11 +1,8 @@
 
 const Constants = {
 
-	isIE11: (navigator.userAgent.indexOf('Windows NT') !== -1 && navigator.userAgent.indexOf('rv:11') !== -1),
-	isEdge: /Edge/.test(navigator.userAgent),
 	isAndroid: /android/i.test(navigator.userAgent),
 	isIOS: /iPad|iPhone|iPod/i.test(navigator.userAgent),
-	hasTouch: Boolean('ontouchstart' in window || navigator.maxTouchPoints || navigator.msMaxTouchPoints),
 
 	// keyboard key codes
 	keys: {
@@ -28,6 +25,9 @@ const Constants = {
 	defaultUserPostsSort: 'new',
 	subredditPostsSorting: ['hot', 'new', 'top', 'rising', 'controversial'],
 	userPostsSorting: ['new', 'hot', 'top'],
+
+	// footnote
+	footnoteText: 'ReddApp by cnelson87@gmail.com',
 
 };
 

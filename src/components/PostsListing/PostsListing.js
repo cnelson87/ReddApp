@@ -1,25 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PostItem from './PostItem';
-import './PostsListing.scss';
+import { useSelector } from 'react-redux';
 
-const propTypes = {
-	data: PropTypes.array.isRequired,
-	nsfwEnabled: PropTypes.bool.isRequired,
-};
+import PostItem from './PostItem/PostItem';
 
-function PostsListing(props) {
-	const { data, nsfwEnabled } = props;
+function PostsListing({ data }) {
+	const { nsfwEnabled } = useSelector((state) => state.appVars);
 
 	return (
-		<div className="posts-listing">
+		<>
 			{data.map((item) => (
 				<PostItem key={item.data.id} data={item.data} nsfwEnabled={nsfwEnabled} />
 			))}
-		</div>
+		</>
 	);
 }
 
-PostsListing.propTypes = propTypes;
+PostsListing.propTypes = {
+	data: PropTypes.array.isRequired
+};
 
 export default PostsListing;

@@ -1,0 +1,51 @@
+@import '~styles/config/variables';
+
+.component {
+	background: rgba($color-black, 0.1);
+	margin-bottom: $sm-spacing;
+	padding: $sm-spacing 0;
+
+	p, ul, ol, dl, table {
+		margin: 0.5em 0;
+	}
+
+	.header,
+	.footer,
+	.body,
+	.reply {
+		padding: $xs-spacing $sm-spacing;
+
+		@media (min-width: $breakpoint-desktop-min) {
+			padding: $xs-spacing #{$base-spacing * 1.5};
+		}
+	}
+
+	.header {
+		font-size: 0.875rem;
+	}
+
+	// .footer > .reply {
+	// 	color: $color-black;
+	// }
+
+	.reply {
+		// background: rgba($color-black, 0.1);
+		border: 1px solid $color-gray-med;
+		// color: $color-white;
+		margin: $sm-spacing 0;
+		overflow-wrap: break-word;
+	}
+
+	.replyHeader {
+		font-size: 0.75rem;
+	}
+
+	.replyBody {
+		padding: $xs-spacing 0;
+	}
+
+	.replyFooter {
+		padding: 0;
+	}
+
+}

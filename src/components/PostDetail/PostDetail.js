@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
+
 import CommentChain from './CommentChain/CommentChain';
 import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
 import VimeoEmbed from 'components/VimeoEmbed/VimeoEmbed';
@@ -9,18 +10,12 @@ import YoutubeEmbed from 'components/YoutubeEmbed/YoutubeEmbed';
 import momentFromNow from 'utilities/momentFromNow';
 import parseVimeoId from 'utilities/parseVimeoId';
 import parseYoutubeId from 'utilities/parseYoutubeId';
-import './PostDetail.scss';
+import styles from './PostDetail.module.scss';
 
-const propTypes = {
-	data: PropTypes.object.isRequired,
-	comments: PropTypes.array.isRequired,
-};
-
-function PostDetail(props) {
-	// console.log(props.data);
-	// console.log(props.comments);
-	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = props.data;
-	const { comments } = props;
+function PostDetail({ data, comments }) {
+	// console.log(data);
+	// console.log(comments);
+	const { id, author, created_utc, is_video, media, selftext, subreddit, thumbnail, title, url } = data;
 	const is_vimeo = media && media.type && media.type.includes('vimeo');
 	const is_youtube = media && media.type && media.type.includes('youtube');
 	const _created_utc = momentFromNow(created_utc);
@@ -28,26 +23,27 @@ function PostDetail(props) {
 	const _thumbnail = !is_video && !is_vimeo && !is_youtube && !_media_image && thumbnail.match(/\.(gif|png|jpg|jpeg)$/i) ? thumbnail : null;
 
 	return (
-		<article className="post-detail react-transition fade-in" data-id={id}>
-			<header className="post-detail--header">
+		<article className={`${styles.component} react-transition fade-in`} data-id={id}>
+			<header className={styles.header}>
 				<Link to={'/r/' + subreddit}>r/{subreddit}</Link> &nbsp; &nbsp; posted by <Link to={'/user/' + author}>u/{author}</Link> {_created_utc}
 			</header>
-			<div className="post-detail--main">
-				<div className="post-detail--content">
+			<div className={styles.main}>
+				<div className={styles.content}>
 					<h2><span dangerouslySetInnerHTML={{__html: title }}></span></h2>
 					{selftext ?
-						<div className="post-detail--body">
-							<ReactMarkdown source={selftext} />
+						<div className={styles.body}>
+							{// eslint-disable-next-line
+							}<ReactMarkdown children={selftext} />
 						</div>
 					: null}
 				</div>
-				<div className="post-detail--thumbnail">
+				<div className={styles.thumbnail}>
 					{_thumbnail ?
 						<img src={_thumbnail} alt="" />
 					: null}
 				</div>
 			</div>
-			<div className="post-detail--media">
+			<div className={styles.media}>
 				{is_vimeo ?
 					<VimeoEmbed videoId={parseVimeoId(media.oembed.html)} title={media.oembed.title} />
 				: null}
@@ -61,20 +57,23 @@ function PostDetail(props) {
 					<img src={_media_image} alt="" />
 				: null}
 			</div>
-			<footer className="post-detail--footer">
+			<footer className={styles.footer}>
 				{comments.map((item) => {
 					if (item.kind === 'more') {
 						return null;
 					}
 					return (
 						<CommentChain key={item.data.id} data={item.data} />
-					)
+					);
 				})}
 			</footer>
 		</article>
 	);
 }
 
-PostDetail.propTypes = propTypes;
+PostDetail.propTypes = {
+	data: PropTypes.object.isRequired,
+	comments: PropTypes.array.isRequired,
+};
 
 export default PostDetail;

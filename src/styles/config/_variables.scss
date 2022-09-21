@@ -1,9 +1,9 @@
 //
 // Config Vars
 // -----------------------------------------------------
+@use 'sass:math';
 
-
-// Color Definitions
+// Colors
 $color-black: #000;
 $color-near-black: #111;
 $color-gray-xdark: #222;
@@ -19,8 +19,8 @@ $color-blue: #07d;
 $color-blue-dark: #036;
 $color-blue-xdark: #013;
 $color-blue-light: #7be;
-$shade-dark: rgba(0, 0, 0, 0.85);
-$shade-light: rgba(0, 0, 0, 0.15);
+$shade-dark: rgba(0, 0, 0, 0.9);
+$shade-light: rgba(0, 0, 0, 0.2);
 $transparent: rgba(0, 0, 0, 0); //iOS friendly transparent
 
 // Fonts
@@ -56,8 +56,8 @@ $border-radius-sm: 4px;
 
 // Spacing
 $base-spacing: 16px;
-$xs-spacing: $base-spacing / 4;
-$sm-spacing: $base-spacing / 2;
+$xs-spacing: math.div($base-spacing, 4);
+$sm-spacing: math.div($base-spacing, 2);
 $md-spacing: $base-spacing;
 $lg-spacing: $base-spacing * 2;
 $xl-spacing: $base-spacing * 4;
@@ -65,22 +65,22 @@ $xl-spacing: $base-spacing * 4;
 
 // Grid System
 $gutter-base: $base-spacing;
-$gutter-half: $gutter-base / 2;
+$gutter-half: math.div($gutter-base, 2);
 $gutter-width-mobile: $gutter-base;
 $gutter-width-tablet: $gutter-base * 1.5;
 $gutter-width-desktop: $gutter-base * 2;
-$gutter-half-width-mobile: $gutter-width-mobile / 2;
-$gutter-half-width-tablet: $gutter-width-tablet / 2;
-$gutter-half-width-desktop: $gutter-width-desktop / 2;
+$gutter-half-width-mobile: math.div($gutter-width-mobile, 2);
+$gutter-half-width-tablet: math.div($gutter-width-tablet, 2);
+$gutter-half-width-desktop: math.div($gutter-width-desktop, 2);
 $gutter-double-width-mobile: $gutter-width-mobile * 2;
 $gutter-double-width-tablet: $gutter-width-tablet * 2;
 $gutter-double-width-desktop: $gutter-width-desktop * 2;
 $vertical-pad-mobile: 20px;
 $vertical-pad-tablet: 40px;
 $vertical-pad-desktop: 60px;
-$vertical-half-pad-mobile: $vertical-pad-mobile / 2;
-$vertical-half-pad-tablet: $vertical-pad-tablet / 2;
-$vertical-half-pad-desktop: $vertical-pad-desktop / 2;
+$vertical-half-pad-mobile: math.div($vertical-pad-mobile, 2);
+$vertical-half-pad-tablet: math.div($vertical-pad-tablet, 2);
+$vertical-half-pad-desktop: math.div($vertical-pad-desktop, 2);
 $vertical-double-pad-mobile: $vertical-pad-mobile * 2;
 $vertical-double-pad-tablet: $vertical-pad-tablet * 2;
 $vertical-double-pad-desktop: $vertical-pad-desktop * 2;

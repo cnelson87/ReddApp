@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Loading.scss';
 
-const propTypes = {
-	message: PropTypes.string
-};
+import styles from './Loading.module.scss';
 
-function Loading(props) {
-	const { message = 'Loading...'} = props;
+function Loading({ message = 'Loading...'}) {
 
 	return (
-		<div className="loading">
-			<p className="loading--message">{message}</p>
+		<div className={styles.component}>
+			<p className={styles.message}>{message}</p>
 		</div>
 	);
 }
 
-Loading.propTypes = propTypes;
+Loading.propTypes = {
+	message: PropTypes.string
+};
 
 export default Loading;

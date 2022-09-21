@@ -1,27 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import textStrings from 'config/textStrings';
-import ToggleSwitch from 'components/ToggleSwitch/ToggleSwitch';
-import { toggleNSFW } from 'store/actions/nsfw';
+import { useDispatch, useSelector } from 'react-redux';
 
-function NSFWToggleSwitchContainer(props) {
-	const { nsfwEnabled, toggleNSFW } = props;
+import { setNsfwEnabled } from 'store/reducers/appVars';
+import ToggleSwitch from 'components/ToggleSwitch/ToggleSwitch';
+
+function NSFWToggleSwitchContainer() {
+	const dispatch = useDispatch();
+	const { nsfwEnabled } = useSelector((state) => state.appVars);
+
+	const handleToggleChange = () => {
+		dispatch(setNsfwEnabled(!nsfwEnabled));
+	};
 
 	return (
-		<ToggleSwitch identifier={"toggle-nsfw"} label={textStrings.labelEnableNSFW} isChecked={nsfwEnabled} handleChange={toggleNSFW} />
+		<ToggleSwitch identifier={'toggle-nsfw'} label={'Show NSFW'} isChecked={nsfwEnabled} handleChange={handleToggleChange} />
 	);
 }
 
-function mapStateToProps(state) {
-	return {
-		nsfwEnabled: state.nsfwEnabled
-	};
-}
-
-function mapDispatchToProps(dispatch) {
-	return {
-		toggleNSFW: () => dispatch(toggleNSFW())
-	};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NSFWToggleSwitchContainer);
+export default NSFWToggleSwitchContainer;

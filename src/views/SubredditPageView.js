@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+
 import axios from 'config/axios';
 import Constants from 'config/Constants';
 import SubredditPostsListingContainer from 'containers/SubredditPostsListingContainer';
@@ -87,5 +89,9 @@ class SubredditPageView extends React.Component {
 		);
 	}
 }
+
+SubredditPageView.propTypes = {
+	match: PropTypes.object.isRequired
+};
 
 export default SubredditPageView;
